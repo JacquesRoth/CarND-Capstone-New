@@ -4,9 +4,11 @@ import rospy
 from std_msgs.msg import Bool
 from dbw_mkz_msgs.msg import ThrottleCmd, SteeringCmd, BrakeCmd, SteeringReport
 from geometry_msgs.msg import TwistStamped
+from styx_msgs.msg import Lane, Waypoint
 import math
 
 from twist_controller import Controller
+from yaw_controller   import YawController
 
 '''
 You can build this node only after you have built (or partially built) the `waypoint_updater` node.
@@ -52,12 +54,23 @@ class DBWNode(object):
                                             ThrottleCmd, queue_size=1)
         self.brake_pub = rospy.Publisher('/vehicle/brake_cmd',
                                          BrakeCmd, queue_size=1)
+        self.YawCntr = YawController(wheel_base, steer_ratio, 0.44, max_lat_accel,
+                                     max_steer_angle)
 
         # TODO: Create `TwistController` object
         # self.controller = TwistController(<Arguments you wish to provide>)
 
         # TODO: Subscribe to all the topics you need to
-
+        self.dbw_enabled = False
+        rospy.Subscriber('/vehicle/dbw_enabled', Bool, self.enable_cb)
+        rospy.Subscriber('/twist_cmd', TwistStamped, self.twist_cmd_cb)
+        rospy.Subscriber('/current_velocity', TwistStamped , self.current_velocity_cb)
+        self.count = 0
+        self.count1 = 0
+        self.current_velocity = 0.0
+        self.current_angular_velocity = 0.0
+        self.prev_throttle = 0.0
+        self.desired_speed = 0.0
         self.loop()
 
     def loop(self):
@@ -70,8 +83,24 @@ class DBWNode(object):
             #                                                     <current linear velocity>,
             #                                                     <dbw status>,
             #                                                     <any other argument you need>)
-            # if <dbw is enabled>:
-            #   self.publish(throttle, brake, steer)
+            if self.dbw_enabled:
+                delta_speed = self.desired_speed - self.current_velocity
+                delta_throttle =  0.01 * delta_speed
+                if   delta_throttle >  0.02: delta_throttle =  0.02
+                elif delta_throttle < -0.02: delta_throttle = -0.02
+                throttle =  delta_throttle + self.prev_throttle
+                if   throttle >  1.0: throttle =  1.0
+                elif throttle < -1.0: throttle = -1.0
+                self.prev_throttle = throttle
+                #if (self.count & 0x3f) == 0:
+                #print self.current_velocity, self.desired_speed, delta_speed, delta_throttle, throttle
+                if throttle >= 0.0:
+                    brake = 0.0
+                else:
+                    brake = -throttle * 1809.0
+                    throttle = 0.0
+                steer = 0.0 #self.YawCntr.get_steering(,self.current_velocity, angular_velocity)
+                self.publish(throttle, brake, steer)
             rate.sleep()
 
     def publish(self, throttle, brake, steer):
@@ -91,6 +120,31 @@ class DBWNode(object):
         bcmd.pedal_cmd_type = BrakeCmd.CMD_TORQUE
         bcmd.pedal_cmd = brake
         self.brake_pub.publish(bcmd)
+
+    def twist_cmd_cb(self, msg):
+        # TODO: Implement
+        #print ("Waypoints  message received")
+        # print(lane.waypoints[0:10])
+        #self.wps = lane.waypoints
+        self.desired_speed = msg.twist.linear.x
+        #if (self.count & 0x3f) == 0:
+        #   print("desired speed", self.desired_speed)
+        #   print (msg)
+        self.count += 1
+
+    def enable_cb(self, msg):
+        print ("Enable message received, enabled = ", msg.data)
+        self.count = 0
+        self.dbw_enabled =  msg.data
+        pass
+
+    def current_velocity_cb(self, msg):
+        self.current_velocity         = msg.twist.linear.x
+        self.current_angular_velocity = msg.twist.angular.z
+        if (self.count1 == 0): print "Current velocity", self.current_velocity,\
+                                                         self.current_angular_velocity
+        self.count1 += 1
+        if self.count1 == 50: self.count1 = 0
 
 
 if __name__ == '__main__':
