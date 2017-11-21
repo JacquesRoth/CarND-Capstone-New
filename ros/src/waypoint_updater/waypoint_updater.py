@@ -121,6 +121,7 @@ class WaypointUpdater(object):
                 if sign == signb: break
                 bestind += 1
                 if bestind >= len(self.wps): bestind = 0
+        self.wp_index = bestind
         if (self.count < 3):
             print("Best waypoint", bestind, self.wps[bestind].pose.pose.position.x, \
                                             self.wps[bestind].pose.pose.position.y, \

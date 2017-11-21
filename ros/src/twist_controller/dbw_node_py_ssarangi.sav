@@ -6,10 +6,9 @@ from geometry_msgs.msg import TwistStamped, PoseStamped
 from styx_msgs.msg import Lane, Waypoint
 import math
 
-from twist_controller import Controller
-#from waypoint_lib import helper
-#from twist_controller import helper
-import helper
+#from twist_controller import Controller
+from waypoint_lib import helper
+
 '''
 You can build this node only after you have built (or partially built) the `waypoint_updater` node.
 You will subscribe to `/twist_cmd` message which provides the proposed linear and angular velocities.
