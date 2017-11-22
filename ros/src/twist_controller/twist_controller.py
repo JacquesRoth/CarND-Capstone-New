@@ -58,10 +58,15 @@ class Controller(object):
         throttle = self.throttle_pid.step(velocity_cte, dt)
         throttle = self.throttle_filter.filt(throttle)
 
-        # Clamp the value between 0.0 & 1.0
-        throttle = min(1.0, max(0.0, throttle))
-        rospy.loginfo("Throttle: %s" % throttle)
-        return throttle
+        # Clamp the value between -1.0 & 1.0
+        throttle = min(1.0, max(-1.0, throttle))
+        if throttle >= 0.0:
+            brake = 0.0
+        else:
+           brake = -throttle * 1809.0
+           throttle = 0.0
+        #rospy.loginfo("Throttle: %s" % throttle)
+        return throttle, brake
 
     def control(self,
                 target_linear_vel,
@@ -73,12 +78,12 @@ class Controller(object):
 
         steer = self.get_steer_value(dt, steer_cte, target_linear_vel, target_angular_vel, current_linear_vel)
 
-        throttle = self.get_throttle_value(dt,
+        throttle, brake = self.get_throttle_value(dt,
                                            target_linear_vel,
                                            target_angular_vel,
                                            current_linear_vel,
                                            current_angular_vel)
-        return throttle, 0.0, steer
+        return throttle, brake, steer
 
 
 

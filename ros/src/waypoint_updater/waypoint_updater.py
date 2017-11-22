@@ -42,6 +42,7 @@ class WaypointUpdater(object):
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
 
         # TODO: Add other member variables you need below
+        self.stop = False
 
         rospy.spin()
 
@@ -129,10 +130,45 @@ class WaypointUpdater(object):
         # Update the velocities of the waypoints from the bestind to bestind + LOOKAHEAD_WPS - 1
         # for now, use 10.0 m/s (about 22 MPH)
         i = bestind
+        lastspeed =  self.wps[bestind].twist.twist.linear.x
+        # Calculate acceleration (in the reverse direction) to stop the car
+        # before the next red (or yellow?) traffic light
+        self.lightindx = 1100 #For testing
+        if self.lightindx > 0:
+            xw = self.wps[i].pose.pose.position.x
+            yw = self.wps[i].pose.pose.position.y
+ 
+            dxl = self.wps[self.lightindx].pose.pose.position.x-xw
+            dyl = self.wps[self.lightindx].pose.pose.position.y-yw
+            s = math.sqrt(dxl*dxl + dyl*dyl)
+            #Calculate difference i - light waypoint with wraparound
+            di = i - self.lightindx
+            if di < 0: di += len(self.wps)
+            if (s < .1) or ((di > 20) and self.stop): a = 5.0
+            else:
+                a = lastspeed * lastspeed / (s + s)
+        else: a = 0.0
         count  = LOOKAHEAD_WPS
         finalwps = []
+        v = lastspeed
+        nexti = i + 1
+        if nexti >= len(self.wps): nexti = 0
+        if a > 4.0:
+            print "Stopping", i
+            self.stop = True
         while True:
-            self.wps[i].twist.twist.linear.x = 10.0
+            if a < 4.0:
+                self.wps[i].twist.twist.linear.x = 10.0
+            else:
+                xw = self.wps[i].pose.pose.position.x
+                yw = self.wps[i].pose.pose.position.y
+                dx = self.wps[nexti].pose.pose.position.x-xw
+                dx = self.wps[nexti].pose.pose.position.y-yw
+                d = math.sqrt(dx * dx + dy * dy)
+                if v > .01: v -= a * d/v
+                else: v = 0.0
+                if v < 0.0: v = 0.0
+                self.wps[i].twist.twist.linear.x = v
             finalwps += [self.wps[i]]
             count -= 1
             if count == 0: break

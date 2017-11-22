@@ -91,22 +91,22 @@ class DBWNode(object):
         return True
 
     def current_velocity_cb(self, msg):
-        rospy.loginfo('Current Velocity Received...')
+        #rospy.loginfo('Current Velocity Received...')
         self.current_linear_velocity = msg.twist.linear.x
         self.current_angular_velocity = msg.twist.angular.x
 
     def current_pose_cb(self, msg):
-        rospy.loginfo('Current Pose Received...')
+        #rospy.loginfo('Current Pose Received...')
         self.current_pose = msg
 
     def twist_cmd_cb(self, msg):
-        rospy.loginfo('Current Twist Received...')
+        #rospy.loginfo('Current Twist Received...')
         self.twist_cmd = msg
         self.target_linear_vel = msg.twist.linear.x
         self.target_angular_vel = msg.twist.angular.x
 
     def final_waypoints_cb(self, msg):
-        rospy.loginfo('Final Waypoints Received...')
+        #rospy.loginfo('Final Waypoints Received...')
         self.final_waypoints = msg.waypoints
 
     def vehicle_dbw_enabled(self, msg):
@@ -135,7 +135,7 @@ class DBWNode(object):
                                                                     self.current_linear_velocity,
                                                                     self.current_angular_velocity,
                                                                     steer_cte)
-                rospy.loginfo('throttle: %s, brake: %s, steering: %s', throttle, brake, steering)
+                #rospy.loginfo('throttle: %s, brake: %s, steering: %s', throttle, brake, steering)
                 self.publish(throttle, brake, steering)
             else:
                 self.controller.reset()
