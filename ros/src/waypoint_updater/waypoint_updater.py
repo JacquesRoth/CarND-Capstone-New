@@ -133,7 +133,7 @@ class WaypointUpdater(object):
         lastspeed =  self.wps[bestind].twist.twist.linear.x
         # Calculate acceleration (in the reverse direction) to stop the car
         # before the next red (or yellow?) traffic light
-        self.lightindx = 1100 #For testing
+        self.lightindx = -1 #1100 #For testing
         if self.lightindx > 0:
             xw = self.wps[i].pose.pose.position.x
             yw = self.wps[i].pose.pose.position.y
