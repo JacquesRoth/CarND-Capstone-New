@@ -2,8 +2,8 @@
 
 import rospy
 from geometry_msgs.msg import PoseStamped
-from styx_msgs.msg import Lane, Waypoint
-
+from styx_msgs.msg import Lane, Waypoint, TrafficLightArray, TrafficLight
+from std_msgs.msg import Int32
 import math
 
 '''
@@ -30,6 +30,7 @@ class WaypointUpdater(object):
 
         rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb)
         rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
+        #rospy.Subscriber('/vehicle/traffic_lights', TrafficLightArray, self.lights_cb)
         print("Subscriptions completed")
         self.count = 0
         #
@@ -38,10 +39,10 @@ class WaypointUpdater(object):
         # Define a variable to define the previous waypoint of the car
         self.wp_index = None
         # TODO: Add a subscriber for /traffic_waypoint and /obstacle_waypoint below
-
+        rospy.Subscriber('/traffic_waypoint', Int32, self.traffic_cb)
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
-
         # TODO: Add other member variables you need below
+        self.lightindx = -1
         self.stop = False
 
         rospy.spin()
@@ -133,7 +134,7 @@ class WaypointUpdater(object):
         lastspeed =  self.wps[bestind].twist.twist.linear.x
         # Calculate acceleration (in the reverse direction) to stop the car
         # before the next red (or yellow?) traffic light
-        self.lightindx = -1 #1100 #For testing
+        if (self.count & 0x3f) == 0: print "lightindx", self.lightindx, self.wp_index
         if self.lightindx > 0:
             xw = self.wps[i].pose.pose.position.x
             yw = self.wps[i].pose.pose.position.y
@@ -154,7 +155,7 @@ class WaypointUpdater(object):
         nexti = i + 1
         if nexti >= len(self.wps): nexti = 0
         if a > 4.0:
-            print "Stopping", i
+            #print "Stopping", i
             self.stop = True
         while True:
             if a < 4.0:
@@ -189,11 +190,20 @@ class WaypointUpdater(object):
 
     def traffic_cb(self, msg):
         # TODO: Callback for /traffic_waypoint message. Implement
-        pass
+        self.lightindx = msg.data
+        if msg.data == -1:
+            self.stop = False
+        #self.lightindx -= 40
+        #if self.lightindx < 0: self.lightindx += len(self.wps)
+        #print "Traffic callback msg", msg
+
 
     def obstacle_cb(self, msg):
         # TODO: Callback for /obstacle_waypoint message. We will implement it later
         pass
+
+    #def lights_cb(self, msg):
+    #    print "Traffic lights", msg
 
     def get_waypoint_velocity(self, waypoint):
         return waypoint.twist.twist.linear.x

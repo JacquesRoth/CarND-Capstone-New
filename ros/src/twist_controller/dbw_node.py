@@ -68,7 +68,7 @@ class DBWNode(object):
         self.dbw_enabled = None
         self.target_linear_vel = 0.0
         self.target_angular_vel = 0.0
-
+        self.count = 0
         # TODO: Subscribe to all the topics you need to
         rospy.Subscriber('/vehicle/dbw_enabled', Bool, self.vehicle_dbw_enabled)
         rospy.Subscriber('/current_velocity', TwistStamped, self.current_velocity_cb)
@@ -125,8 +125,11 @@ class DBWNode(object):
             #                                                     <any other argument you need>)
             # if <dbw is enabled>:
             #   self.publish(throttle, brake, steer)
+            self.count += 1
             if not self.all_params_received():
-              rospy.loginfo('Waiting for all params ...')
+              if (self.count & 0xff) == 0:
+                  rospy.loginfo('Waiting for all params ...')
+              rate.sleep()
               continue
             elif self.dbw_enabled:
                 steer_cte = helper.calc_steer_cte(self.current_pose, self.final_waypoints)
