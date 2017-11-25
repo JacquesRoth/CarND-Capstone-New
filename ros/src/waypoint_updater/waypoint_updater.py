@@ -30,7 +30,6 @@ class WaypointUpdater(object):
 
         rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb)
         rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
-        #rospy.Subscriber('/vehicle/traffic_lights', TrafficLightArray, self.lights_cb)
         print("Subscriptions completed")
         self.count = 0
         #
@@ -42,8 +41,9 @@ class WaypointUpdater(object):
         rospy.Subscriber('/traffic_waypoint', Int32, self.traffic_cb)
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
         # TODO: Add other member variables you need below
-        self.lightindx = -1
+        self.lightindx = -0x7FFFFFFF
         self.stop = False
+        self.isYellow = False
 
         rospy.spin()
 
@@ -134,6 +134,7 @@ class WaypointUpdater(object):
         lastspeed =  self.wps[bestind].twist.twist.linear.x
         # Calculate acceleration (in the reverse direction) to stop the car
         # before the next red (or yellow?) traffic light
+ 
         if (self.count & 0x3f) == 0: print "lightindx", self.lightindx, self.wp_index
         if self.lightindx > 0:
             xw = self.wps[i].pose.pose.position.x
@@ -154,11 +155,11 @@ class WaypointUpdater(object):
         v = lastspeed
         nexti = i + 1
         if nexti >= len(self.wps): nexti = 0
-        if a > 4.0:
+        if (a > 4.0) and not(self.isYellow and a >= 6.0):
             #print "Stopping", i
             self.stop = True
         while True:
-            if a < 4.0:
+            if (a < 4.0) or (self.isYellow and a < 6.0):
                 self.wps[i].twist.twist.linear.x = 10.0
             else:
                 xw = self.wps[i].pose.pose.position.x
@@ -190,9 +191,15 @@ class WaypointUpdater(object):
 
     def traffic_cb(self, msg):
         # TODO: Callback for /traffic_waypoint message. Implement
-        self.lightindx = msg.data
-        if msg.data == -1:
-            self.stop = False
+        if msg.data != -0x7FFFFFFF:
+            if msg.data < 0:
+                self.lightindx = -msg.data
+                self.isYellow  = True
+                self.stop = False
+            else:
+                self.isYellow  = False
+                self.lightindx = msg.data
+        else: self.stop = False
         #self.lightindx -= 40
         #if self.lightindx < 0: self.lightindx += len(self.wps)
         #print "Traffic callback msg", msg

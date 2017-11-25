@@ -119,7 +119,7 @@ class TLDetector(object):
         light_wp, state = self.process_traffic_lights()
 
         '''
-        Publish upcoming red lights at camera frequency.
+        Publish upcoming red lights and yellow at camera frequency.
         Each predicted state has to occur `STATE_COUNT_THRESHOLD` number
         of times till we start using it. Otherwise the previous stable state is
         used.
@@ -129,7 +129,12 @@ class TLDetector(object):
             self.state = state
         elif self.state_count >= STATE_COUNT_THRESHOLD:
             self.last_state = self.state
-            light_wp = light_wp if state == TrafficLight.RED else -1
+            if    state == TrafficLight.RED:
+                light_wp = light_wp
+            elif state == TrafficLight.YELLOW:
+                light_wp = -light_wp
+            else: light_wp = -0x7FFFFFFF
+            #light_wp = light_wp if state == TrafficLight.RED else -1
             self.last_wp = light_wp
             self.upcoming_red_light_pub.publish(Int32(light_wp))
             #print "Publishing", light_wp
