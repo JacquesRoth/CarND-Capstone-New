@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PoseStamped, TwistStamped
 from styx_msgs.msg import Lane, Waypoint, TrafficLightArray, TrafficLight
 from std_msgs.msg import Int32
 import math
@@ -27,7 +27,7 @@ LOOKAHEAD_WPS = 200 # Number of waypoints we will publish. You can change this n
 class WaypointUpdater(object):
     def __init__(self):
         rospy.init_node('waypoint_updater')
-
+        rospy.Subscriber('/current_velocity', TwistStamped, self.current_velocity_cb)
         rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb)
         rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
         print("Subscriptions completed")
@@ -44,8 +44,16 @@ class WaypointUpdater(object):
         self.lightindx = -0x7FFFFFFF
         self.stop = False
         self.isYellow = False
+        self.current_linear_velocity  = None
+        self.current_angular_velocity = None
+        self.lasta = 0.0
 
         rospy.spin()
+
+    def current_velocity_cb(self, msg):
+        #rospy.loginfo('Current Velocity Received...')
+        self.current_linear_velocity = msg.twist.linear.x
+        self.current_angular_velocity = msg.twist.angular.x
 
     def pose_cb(self, msg):
         if self.wps == None: return
@@ -131,24 +139,32 @@ class WaypointUpdater(object):
         # Update the velocities of the waypoints from the bestind to bestind + LOOKAHEAD_WPS - 1
         # for now, use 10.0 m/s (about 22 MPH)
         i = bestind
-        lastspeed =  self.wps[bestind].twist.twist.linear.x
+        if self.current_linear_velocity != None:
+            lastspeed = self.current_linear_velocity
+        else:
+            lastspeed =  self.wps[bestind].twist.twist.linear.x
         # Calculate acceleration (in the reverse direction) to stop the car
         # before the next red (or yellow?) traffic light
  
-        if (self.count & 0x3f) == 0: print "lightindx", self.lightindx, self.wp_index
+        if (self.count & 0x3f) == 0: print "lightindx", self.lightindx, self.wp_index, \
+                                                        self.lasta
         if self.lightindx > 0:
+            stoptarget = self.lightindx - 5
+            if stoptarget < 0: stoptarget += len(self.wps)
             xw = self.wps[i].pose.pose.position.x
             yw = self.wps[i].pose.pose.position.y
  
-            dxl = self.wps[self.lightindx].pose.pose.position.x-xw
-            dyl = self.wps[self.lightindx].pose.pose.position.y-yw
+            dxl = self.wps[stoptarget].pose.pose.position.x-xw
+            dyl = self.wps[stoptarget].pose.pose.position.y-yw
             s = math.sqrt(dxl*dxl + dyl*dyl)
             #Calculate difference i - light waypoint with wraparound
-            di = i - self.lightindx
+            di = i - stoptarget
             if di < 0: di += len(self.wps)
-            if (s < .1) or ((di > 20) and self.stop): a = 5.0
+            #if (s < .1) or ((di > 20) and self.stop): a = 5.0
+            if (s < 0.01):  a = 9.0
             else:
-                a = lastspeed * lastspeed / (s + s)
+                a = lastspeed * lastspeed / (s + s) #(s + s) + 1.5
+                if a > 9.0: a = 9.0
         else: a = 0.0
         count  = LOOKAHEAD_WPS
         finalwps = []
@@ -159,7 +175,7 @@ class WaypointUpdater(object):
             #print "Stopping", i
             self.stop = True
         while True:
-            if (a < 4.0) or (self.isYellow and a < 6.0):
+            if not self.stop:
                 self.wps[i].twist.twist.linear.x = 10.0
             else:
                 xw = self.wps[i].pose.pose.position.x
@@ -167,9 +183,10 @@ class WaypointUpdater(object):
                 dx = self.wps[nexti].pose.pose.position.x-xw
                 dx = self.wps[nexti].pose.pose.position.y-yw
                 d = math.sqrt(dx * dx + dy * dy)
-                if v > .01: v -= a * d/v
+                if v > .01: v -= (a + 1.0) * d/v
                 else: v = 0.0
                 if v < 0.0: v = 0.0
+                if (i >= stoptarget) and (i <= self.lightindx): v = 0.0
                 self.wps[i].twist.twist.linear.x = v
             finalwps += [self.wps[i]]
             count -= 1
@@ -177,6 +194,7 @@ class WaypointUpdater(object):
             i += 1
             if i == len(self.wps): i = 0
         # Publish
+        self.lasta = a
         lane = Lane()
         lane.header.frame_id='/final'
         lane.header.stamp = rospy.Time(0)
@@ -195,11 +213,12 @@ class WaypointUpdater(object):
             if msg.data < 0:
                 self.lightindx = -msg.data
                 self.isYellow  = True
-                self.stop = False
             else:
                 self.isYellow  = False
                 self.lightindx = msg.data
-        else: self.stop = False
+        else:
+            self.stop = False
+            self.lightindx = -0x7FFFFFFF
         #self.lightindx -= 40
         #if self.lightindx < 0: self.lightindx += len(self.wps)
         #print "Traffic callback msg", msg
