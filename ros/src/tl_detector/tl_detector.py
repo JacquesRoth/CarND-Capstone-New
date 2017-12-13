@@ -12,7 +12,24 @@ import cv2
 import yaml
 import math
 STATE_COUNT_THRESHOLD = 3
+global frameno
+frameno = 0
 
+# Experimental code for ROI from positions
+FrameH = 600
+FrameHC = FrameH / 2
+FrameW = 800
+FrameWC = FrameW / 2
+
+
+CameraHeight = 1.2 #Camera height on car
+CameraCos = 0.995  #Uptilt angle cos and sin
+CameraSin = 0.100
+CameraPan = 0
+CameraF   = 3360.0 #Camera focal length & pixel adjustments
+PanError = 0.025
+PanPixels = int(CameraF * PanError)
+#End of experimental code
 class TLDetector(object):
     def __init__(self):
         rospy.init_node('tl_detector')
@@ -53,6 +70,7 @@ class TLDetector(object):
         self.count1 = 0
         self.wp_index = None
         self.trace = False
+        self.file = open("motion.txt","w")
         rospy.spin()
 
     def pose_cb(self, msg):
@@ -72,10 +90,14 @@ class TLDetector(object):
         for i in range (0, len(self.lights)):
             xl = self.lights[i].pose.pose.position.x
             yl = self.lights[i].pose.pose.position.y
+            zl = self.lights[i].pose.pose.position.z
+            #if  (self.count & 0x1ff) == 0:
+            #    zl = self.lights[i].pose.pose.position.z
+            #    print("light positions",  xl, yl,  zl)
             state = self.lights[i].state
             if (xl, yl) in self.tl_dict:
-                oldstate, wpl = self.tl_dict[(xl, yl)]
-                self.tl_dict[(xl, yl)] =  (state, wpl)
+                oldstate, wpl, oldindex = self.tl_dict[(xl, yl)]
+                self.tl_dict[(xl, yl)] =  (state, wpl, i)
             else:
                 # Find the closest waypoint to the light's stop line
                 mindist = 1000000.0
@@ -100,7 +122,8 @@ class TLDetector(object):
                     if dist < mindist: 
                        mindist = dist
                        bestind = j
-                self.tl_dict[(xl, yl)] = (state, bestind)
+                self.tl_dict[(xl, yl)] = (state, bestind, i)
+                #print ("Closest light state", state)
         if (self.count & 0xff) == 0:
            print "TL dictionary"
            print(self.tl_dict)
@@ -207,6 +230,38 @@ class TLDetector(object):
             return False
 
         cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
+        global frameno
+        if frameno % 50 == 0:
+            print("detector frameno, orientation", frameno, self.pose.pose.orientation.z)
+        if (frameno >= 6000) and (frameno < 8000):
+            if frameno % 50 == 0:
+                cv2.imwrite("simbags/"+str(frameno)+".png", cv_image)
+                msg = self.pose
+                x = msg.pose.position.x
+                y = msg.pose.position.y
+                z = msg.pose.position.z
+                xq = msg.pose.orientation.x
+                yq = msg.pose.orientation.y
+                zq = msg.pose.orientation.z
+                wq = msg.pose.orientation.w
+                lighti = self.tl_dict[light][2]
+                xl = self.lights[lighti].pose.pose.position.x
+                yl = self.lights[lighti].pose.pose.position.y
+                zl = self.lights[lighti].pose.pose.position.z
+                string = str(frameno) + ',' + \
+                         str(x)   + ','+ \
+                         str(y)   + ','+ \
+                         str(z)   + ','+ \
+                         str(xq)  + ','+ \
+                         str(yq)  + ','+ \
+                         str(zq)  + ','+ \
+                         str(wq)  + ',' + \
+                         str(xl)  + ','+ \
+                         str(yl)  + ','+ \
+                         str(zl)  + '\n'
+                print(string)
+                self.file.write(string)
+        frameno += 1
 
         #Get classification
         return self.light_classifier.get_classification(cv_image)
@@ -242,14 +297,79 @@ class TLDetector(object):
                     light = i
                     mindist = d
                 if self.trace: print car_position, j, d, mindist, bestind
+            #
+            # Find region of interest by car position and Light Position
+            #
+            msg = self.pose
+            CarX = msg.pose.position.x
+            CarY = msg.pose.position.y
+            CarZ = msg.pose.position.z
+            Oz = msg.pose.orientation.z
+            Ow = msg.pose.orientation.w
+            cosO = 2.0 * Oz * Ow
+            sinO = 2.0 * Ow * Ow
+            CarO = math.atan2(cosO, sinO)
+            lighti = self.tl_dict[light][2]
+            Lx = self.lights[lighti].pose.pose.position.x
+            Ly = self.lights[lighti].pose.pose.position.y
+            Lz = self.lights[lighti].pose.pose.position.z
+            # Translate traffic light position so camera is at (0, 0, 0)
+            Lx -= CarX
+            Ly -= CarY
+            Lz -= CarZ + CameraHeight
+            # Rotate traffic light position by orientation so camera
+            # faces along the x axis
+            # Lz needs no changes
+            cosO = math.cos(CarO+CameraPan)
+            sinO = math.sin(CarO+CameraPan)
+            Lxt = Lx
+            Lx =  Lx * cosO + Ly  * sinO
+            Ly =  Ly * cosO - Lxt * sinO
+            # Rotate traffic light position by camera tilt so camera faces
+            # along the x axis
+            # Ly needs no changes
+            #
+            Lxt = Lx
+            Lx =  Lx  * CameraCos + Lz * CameraSin
+            Lz = -Lxt * CameraSin + Lz * CameraCos
+            #
+            # Calculate image position
+            #
+            Ix = int(FrameWC - CameraF * Ly / Lx)
+            Iy = int(FrameHC - CameraF * Lz / Lx)
+            if   Ix < 0:       Ix = 0
+            elif Ix >= FrameW: Ix = FrameW - 1
+            if   Iy < 0:       Iy = 0
+            elif Iy >= FrameH: Iy = FrameH - 1
+            #print("Image x, y =", Ix, Iy)
+            # Determine rectangular box around traffic light position
+            # This can be used for ROI extraction of a sub-image
+            RecWC = int(CameraF * 1.5 / Lx)
+            RecHC = int(CameraF * 2.0 / Lx)
+            if RecWC < 10: RecWC = 10
+            if RecHC < 10: RecHC = 10
+            RecTop   = Iy - RecHC
+            RecBot   = Iy + RecHC
+            RecLeft  = Ix - RecWC - PanPixels
+            RecRight = Ix + RecWC + PanPixels
+            if RecTop   < 0         : RecTop   = 0
+            if RecBot   > FrameH - 1: RecBot   = FrameH - 1
+            if RecLeft  < 0         : RecLeft  = 0
+            if RecRight > FrameW - 1: RecRight = FrameW - 1 
+            #
+            # Merian, you may want to use the image or subimage with various
+            # methods of getting the light state from the image instead of
+            # from the tl state from the message in the line below this one.
             state = self.tl_dict[light][0]
             if (self.count1 & 0x7f) == 0: print "Car wp index", car_position, bestind, state
             self.count1 += 1
         if light:
-
-            #  state = self.get_light_state(light)
+            foobar = self.get_light_state(light) #state =
             light_wp = bestind
+            print "tl_detector found light", state, light_wp, frameno
             return light_wp, state
+        else:
+            print "tl_detector no light found"
         #self.waypoints = None
         return -1, TrafficLight.UNKNOWN
 

@@ -43,13 +43,16 @@ class Controller(object):
         return dt
 
     def get_steer_value(self, dt, steer_cte, target_linear_vel, target_angular_vel, current_linear_vel):
+
         # Steering PDE
         steering = self.steer_pid.step(steer_cte, dt)
 
         # Yaw Controller
         yaw_control = self.yaw_controller.get_steering(target_linear_vel, target_angular_vel, current_linear_vel)
 
-        steer = self.steer_filter.filt(steering + 0.1 * yaw_control)
+        #steer = self.steer_filter.filt(steering + 0.1 * yaw_control)
+        steer = self.steer_filter.filt(steering)
+
         return steer
 
     def get_throttle_value(self, dt, target_linear_vel, target_angular_vel, current_linear_vel, current_angular_vel):

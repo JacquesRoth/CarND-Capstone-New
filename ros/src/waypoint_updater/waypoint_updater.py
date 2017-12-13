@@ -47,7 +47,7 @@ class WaypointUpdater(object):
         self.current_linear_velocity  = None
         self.current_angular_velocity = None
         self.lasta = 0.0
-
+        self.frameno = 0
         rospy.spin()
 
     def current_velocity_cb(self, msg):
@@ -176,7 +176,7 @@ class WaypointUpdater(object):
             self.stop = True
         while True:
             if not self.stop:
-                self.wps[i].twist.twist.linear.x = 10.0
+                self.wps[i].twist.twist.linear.x = 22.35
             else:
                 xw = self.wps[i].pose.pose.position.x
                 yw = self.wps[i].pose.pose.position.y
