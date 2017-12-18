@@ -1,0 +1,1198 @@
+(0.0, -0.837503433228, 15.7918014526, 0.407900691032, 0.109387159958, 0.987982774336, 20.991, 22.837, 1.524)
+(1.0, -0.831980347633, 15.8072853088, 0.409445643425, 0.109498472893, 0.987999264368, 20.991, 22.837, 1.524)
+(2.0, -0.835287809372, 15.7934398651, 0.400059103966, 0.109404304988, 0.987995147722, 20.991, 22.837, 1.524)
+(3.0, -0.835287809372, 15.7934398651, 0.400059103966, 0.109404304988, 0.987995147722, 20.991, 22.837, 1.524)
+(4.0, -0.847963094711, 15.8011274338, 0.408903002739, 0.109261285357, 0.988005871822, 20.991, 22.837, 1.524)
+(5.0, -0.828981757164, 15.7930583954, 0.394779205322, 0.109090772837, 0.988057129197, 20.991, 22.837, 1.524)
+(6.0, -0.834670186043, 15.8087425232, 0.410481929779, 0.109257682572, 0.987994211612, 20.991, 22.837, 1.524)
+(7.0, -0.834670186043, 15.8087425232, 0.410481929779, 0.109257682572, 0.987994211612, 20.991, 22.837, 1.524)
+(8.0, -0.83066868782, 15.8019943237, 0.405902862549, 0.109167322009, 0.98803440152, 20.991, 22.837, 1.524)
+(9.0, -0.83066868782, 15.8019943237, 0.405902862549, 0.109167322009, 0.98803440152, 20.991, 22.837, 1.524)
+(10.0, -0.845777273178, 15.7992649078, 0.407093405724, 0.109031824421, 0.987997484676, 20.991, 22.837, 1.524)
+(11.0, -0.827937960625, 15.8047161102, 0.408201217651, 0.108967132286, 0.98806044532, 20.991, 22.837, 1.524)
+(12.0, -0.837228775024, 15.7974185944, 0.406150579453, 0.109278542501, 0.988021441541, 20.991, 22.837, 1.524)
+(13.0, -0.836638212204, 15.8063707352, 0.414148807526, 0.109233094888, 0.987997678958, 20.991, 22.837, 1.524)
+(14.0, -0.830353140831, 15.8040266037, 0.406861782074, 0.108943674818, 0.988034550901, 20.991, 22.837, 1.524)
+(15.0, -0.830353140831, 15.8040266037, 0.406861782074, 0.108943674818, 0.988034550901, 20.991, 22.837, 1.524)
+(16.0, -0.83352458477, 15.8102941513, 0.418102025986, 0.10898838912, 0.988071129407, 20.991, 22.837, 1.524)
+(17.0, -0.836800336838, 15.8020200729, 0.405947089195, 0.109125342271, 0.98802236535, 20.991, 22.837, 1.524)
+(18.0, -0.836800336838, 15.8020200729, 0.405947089195, 0.109125342271, 0.98802236535, 20.991, 22.837, 1.524)
+(19.0, -0.828944206238, 15.8001852036, 0.403411626816, 0.109822306963, 0.988002634108, 20.991, 22.837, 1.524)
+(20.0, -0.840608119965, 15.8122463226, 0.409183144569, 0.108515746656, 0.988070695856, 20.991, 22.837, 1.524)
+(21.0, -0.840608119965, 15.8122463226, 0.409183144569, 0.108515746656, 0.988070695856, 20.991, 22.837, 1.524)
+(22.0, -0.820424318314, 15.8059396744, 0.399044036865, 0.109951395767, 0.988006681554, 20.991, 22.837, 1.524)
+(23.0, -0.827816724777, 15.8069658279, 0.408180475235, 0.10837071813, 0.988138411787, 20.991, 22.837, 1.524)
+(24.0, -0.821897268295, 15.7933006287, 0.409846901894, 0.110015596715, 0.987961671224, 20.991, 22.837, 1.524)
+(25.0, -0.821897268295, 15.7933006287, 0.409846901894, 0.110015596715, 0.987961671224, 20.991, 22.837, 1.524)
+(26.0, -0.808213472366, 15.8041286469, 0.411105871201, 0.108922700082, 0.988121463177, 20.991, 22.837, 1.524)
+(27.0, -0.793899893761, 15.8182134628, 0.41045987606, 0.109336653578, 0.988089132684, 20.991, 22.837, 1.524)
+(28.0, -0.793899893761, 15.8182134628, 0.41045987606, 0.109336653578, 0.988089132684, 20.991, 22.837, 1.524)
+(29.0, -0.800296664238, 15.8041696548, 0.407783985138, 0.109104751031, 0.988088681753, 20.991, 22.837, 1.524)
+(30.0, -0.772003889084, 15.8119678497, 0.417386174202, 0.108815454114, 0.988089851072, 20.991, 22.837, 1.524)
+(31.0, -0.745269179344, 15.8233480453, 0.39253115654, 0.108598194973, 0.988172846438, 20.991, 22.837, 1.524)
+(32.0, -0.721808671951, 15.8364219666, 0.420944809914, 0.108593754971, 0.988166897265, 20.991, 22.837, 1.524)
+(33.0, -0.721808671951, 15.8364219666, 0.420944809914, 0.108593754971, 0.988166897265, 20.991, 22.837, 1.524)
+(34.0, -0.686390995979, 15.8321475983, 0.397789955139, 0.10832124335, 0.988230629445, 20.991, 22.837, 1.524)
+(35.0, -0.686390995979, 15.8321475983, 0.397789955139, 0.10832124335, 0.988230629445, 20.991, 22.837, 1.524)
+(36.0, -0.66029548645, 15.828625679, 0.417718529701, 0.108996336659, 0.98812914397, 20.991, 22.837, 1.524)
+(37.0, -0.638828277588, 15.8530712128, 0.412206053734, 0.108683347611, 0.988181376522, 20.991, 22.837, 1.524)
+(38.0, -0.590141057968, 15.8556432724, 0.407405257225, 0.108337385386, 0.98824689368, 20.991, 22.837, 1.524)
+(39.0, -0.590141057968, 15.8556432724, 0.407405257225, 0.108337385386, 0.98824689368, 20.991, 22.837, 1.524)
+(40.0, -0.561350107193, 15.8685455322, 0.434311151505, 0.108557117143, 0.988207760069, 20.991, 22.837, 1.524)
+(41.0, -0.524003267288, 15.8876438141, 0.421866059303, 0.108028831893, 0.988256927456, 20.991, 22.837, 1.524)
+('Frame', 0)
+('Car position', -0.837503433228, 15.7918014526, 0.407900691032)
+('Orientation', 0.109387159958, 0.987982774336)
+('cosO, sinO', 0.2161452595440813, 0.952219924769319)
+('Angle', 0.22320860157590122)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.828503433228, 7.0451985474, 0.616099308968)
+('Orientation correction', 22.927633553791864, 0.6648340618313018, 0.616099308968)
+('Light translated to', 22.778181318414198, 0.6648340618313018, 2.677060321642499)
+Expected TL radius 9.21056852903
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 63 10 138 472
+('fraction, count', 0.0375, 15)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 107 10 138 472
+('fraction, count', 0.3325, 133)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 8 9 138 472
+Best Circle was 235.5 106.5 10.1242
+t, b, l, r, frameH, frameW 15 197 215 255 138 472
+Circlesf x, y, z, r 26.5 93.5 8.51469
+Circlesf x, y, z, r 23.5 74.5 7.77817
+Circlesf x, y, z, r 12.5 49.5 10.9772
+Circlesf x, y, z, r 10.5 30.5 10.7935
+Circlesf x, y, z, r 25.5 59.5 7.77817
+sumy, ncirclesf, avgy, bot, top, deltaH 307.5 5 0.337912087912 137 15 182.0
+Tl circles len 5
+tl box shape (122, 40)
+Positional Color GREEN 0.337912087912
+(10.124228, 0.3325)
+Green light seen
+('delta_light_x,y', 199658.0)
+('Circle x, y', 236, 107)
+('Frame', 1)
+('Car position', -0.831980347633, 15.8072853088, 0.409445643425)
+('Orientation', 0.109498472893, 0.987999264368)
+('cosO, sinO', 0.2163688213354068, 0.9522850927834183)
+('Angle', 0.22341707918968698)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.822980347633, 7.029714691200001, 0.614554356575)
+('Orientation correction', 22.91813903863653, 0.6467324783660331, 0.614554356575)
+('Light translated to', 22.76886477648637, 0.6467324783660331, 2.67466719719033)
+Expected TL radius 9.2143373005
+('Image x, y =', 654, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 64 11 138 472
+('fraction, count', 0.02066115702479339, 10)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 105 10 138 472
+('fraction, count', 0.31, 124)
+('Circles examined', 1)
+x, y, r, frameH, frameW 337 8 9 138 472
+Best Circle was 236.5 104.5 10.1242
+t, b, l, r, frameH, frameW 13 195 216 256 138 472
+Circlesf x, y, z, r 21.5 61.5 10.9772
+Circlesf x, y, z, r 21.5 78.5 6.5192
+Circlesf x, y, z, r 21.5 94.5 10.1242
+sumy, ncirclesf, avgy, bot, top, deltaH 234.5 3 0.429487179487 137 13 182.0
+Tl circles len 3
+tl box shape (124, 40)
+Positional Color YELLOW 0.429487179487
+(10.124228, 0.31)
+Green light seen
+('delta_light_x,y', 3.0)
+('Circle x, y', 237, 105)
+('Frame', 2)
+('Car position', -0.835287809372, 15.7934398651, 0.400059103966)
+('Orientation', 0.109404304988, 0.987995147722)
+('cosO, sinO', 0.2161818449360836, 0.9522688238444332)
+('Angle', 0.22323405321408352)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.826287809372, 7.0435601349, 0.623940896034)
+('Orientation correction', 22.92506524693957, 0.6632965664443269, 0.623940896034)
+('Light translated to', 22.774917798784056, 0.6632965664443269, 2.684638610584822)
+Expected TL radius 9.21188835251
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 63 10 138 472
+('fraction, count', 0.0375, 15)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 239 106 11 138 472
+('fraction, count', 0.28512396694214875, 138)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 8 9 138 472
+Best Circle was 238.5 105.5 10.5119
+t, b, l, r, frameH, frameW 10 200 217 259 138 472
+Circlesf x, y, z, r 14.5 34.5 9.82344
+Circlesf x, y, z, r 14.5 53.5 6.5192
+Circlesf x, y, z, r 21.5 98.5 9.61769
+Circlesf x, y, z, r 4.5 41.5 14.5774
+Circlesf x, y, z, r 26.5 60.5 12.3491
+Circlesf x, y, z, r 20.5 77.5 9.19239
+sumy, ncirclesf, avgy, bot, top, deltaH 366.0 6 0.321052631579 137 10 190.0
+Tl circles len 6
+tl box shape (127, 42)
+Positional Color GREEN 0.321052631579
+(10.511898, 0.28512396694214875)
+Green light seen
+('delta_light_x,y', 3.0)
+('Circle x, y', 239, 106)
+('Frame', 3)
+('Car position', -0.835287809372, 15.7934398651, 0.400059103966)
+('Orientation', 0.109404304988, 0.987995147722)
+('cosO, sinO', 0.2161818449360836, 0.9522688238444332)
+('Angle', 0.22323405321408352)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.826287809372, 7.0435601349, 0.623940896034)
+('Orientation correction', 22.92506524693957, 0.6632965664443269, 0.623940896034)
+('Light translated to', 22.774917798784056, 0.6632965664443269, 2.684638610584822)
+Expected TL radius 9.21188835251
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 63 11 138 472
+('fraction, count', 0.03305785123966942, 16)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 107 10 138 472
+('fraction, count', 0.335, 134)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 5 11 138 472
+Best Circle was 235.5 106.5 10.1242
+t, b, l, r, frameH, frameW 15 197 215 255 138 472
+Circlesf x, y, z, r 23.5 92.5 10.1242
+Circlesf x, y, z, r 26.5 54.5 7.64853
+Circlesf x, y, z, r 20.5 35.5 6.5192
+Circlesf x, y, z, r 15.5 65.5 17.6777
+Circlesf x, y, z, r 22.5 78.5 9.82344
+sumy, ncirclesf, avgy, bot, top, deltaH 326.5 5 0.358791208791 137 15 182.0
+Tl circles len 5
+tl box shape (122, 40)
+Positional Color GREEN 0.358791208791
+(10.124228, 0.335)
+Green light seen
+('delta_light_x,y', 4.0)
+('Circle x, y', 236, 107)
+('Frame', 4)
+('Car position', -0.847963094711, 15.8011274338, 0.408903002739)
+('Orientation', 0.109261285357, 0.988005871822)
+('cosO, sinO', 0.2159015829910702, 0.9523112055095004)
+('Angle', 0.2229445533848001)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.838963094710998, 7.0358725662, 0.6150969972610001)
+('Orientation correction', 22.93489729801633, 0.6590127080702395, 0.6150969972610001)
+('Light translated to', 22.785505489340974, 0.6590127080702395, 2.6767158563936997)
+Expected TL radius 9.20760788468
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 63 10 138 472
+('fraction, count', 0.0325, 13)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 107 10 138 472
+('fraction, count', 0.35, 140)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 8 9 138 472
+Best Circle was 237.5 106.5 9.82344
+t, b, l, r, frameH, frameW 18 194 217 257 138 472
+Circlesf x, y, z, r 10.5 93.5 10.1242
+Circlesf x, y, z, r 23.5 30.5 10.5119
+sumy, ncirclesf, avgy, bot, top, deltaH 124.0 2 0.352272727273 137 18 176.0
+Tl circles len 2
+tl box shape (119, 40)
+Positional Color UNKNOWN 0.352272727273
+(9.8234406, 0.35)
+Green light seen
+('delta_light_x,y', 2.0)
+('Circle x, y', 238, 107)
+('Frame', 5)
+('Car position', -0.828981757164, 15.7930583954, 0.394779205322)
+('Orientation', 0.109090772837, 0.988057129197)
+('cosO, sinO', 0.21557583166241656, 0.9525137811140341)
+('Angle', 0.22257339055235767)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.819981757164, 7.0439416046000005, 0.629220794678)
+('Orientation correction', 22.91867243195694, 0.6805667995440565, 0.629220794678)
+('Light translated to', 22.768076003464895, 0.6805667995440565, 2.6893215082959445)
+Expected TL radius 9.2146565203
+('Image x, y =', 652, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 63 10 138 472
+('fraction, count', 0.04, 16)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 239 106 9 138 472
+('fraction, count', 0.3888888888888889, 126)
+('Circles examined', 1)
+x, y, r, frameH, frameW 339 8 9 138 472
+Best Circle was 238.5 105.5 9.30054
+t, b, l, r, frameH, frameW 21 189 219 257 138 472
+Circlesf x, y, z, r 16.5 37.5 11.068
+Circlesf x, y, z, r 21.5 70.5 6.5192
+Circlesf x, y, z, r 14.5 17.5 14.5774
+Circlesf x, y, z, r 22.5 50.5 7.64853
+Circlesf x, y, z, r 20.5 85.5 10.5119
+sumy, ncirclesf, avgy, bot, top, deltaH 261.5 5 0.31130952381 137 21 168.0
+Tl circles len 5
+tl box shape (116, 38)
+Positional Color GREEN 0.31130952381
+(9.3005371, 0.3888888888888889)
+Green light seen
+('delta_light_x,y', 2.0)
+('Circle x, y', 239, 106)
+('Frame', 6)
+('Car position', -0.834670186043, 15.8087425232, 0.410481929779)
+('Orientation', 0.109257682572, 0.987994211612)
+('cosO, sinO', 0.21589191591055457, 0.9522651243576348)
+('Angle', 0.22294533256934562)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.825670186043, 7.0282574768, 0.613518070221)
+('Orientation correction', 22.920007445323698, 0.6553937262649505, 0.613518070221)
+('Light translated to', 22.770818788477982, 0.6553937262649505, 2.6738033162122266)
+Expected TL radius 9.21354659878
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 65 10 138 472
+('fraction, count', 0.045, 18)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 113 9 138 472
+('fraction, count', 0.3117283950617284, 101)
+('Circles examined', 1)
+x, y, r, frameH, frameW 337 6 9 138 472
+Best Circle was 235.5 112.5 8.86002
+t, b, l, r, frameH, frameW 32 192 217 253 138 472
+Circlesf x, y, z, r 19.5 42.5 10.7935
+Circlesf x, y, z, r 20.5 59.5 8.63134
+Circlesf x, y, z, r 21.5 74.5 11.4237
+sumy, ncirclesf, avgy, bot, top, deltaH 176.5 3 0.367708333333 137 32 160.0
+Tl circles len 3
+tl box shape (105, 36)
+Positional Color GREEN 0.367708333333
+(8.8600216, 0.3117283950617284)
+Green light seen
+('delta_light_x,y', 10.0)
+('Circle x, y', 236, 113)
+('Frame', 7)
+('Car position', -0.834670186043, 15.8087425232, 0.410481929779)
+('Orientation', 0.109257682572, 0.987994211612)
+('cosO, sinO', 0.21589191591055457, 0.9522651243576348)
+('Angle', 0.22294533256934562)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.825670186043, 7.0282574768, 0.613518070221)
+('Orientation correction', 22.920007445323698, 0.6553937262649505, 0.613518070221)
+('Light translated to', 22.770818788477982, 0.6553937262649505, 2.6738033162122266)
+Expected TL radius 9.21354659878
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 231 64 9 138 472
+('fraction, count', 0.043209876543209874, 14)
+('Circles examined', 1)
+('None F', 0.0, -1, 9)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 107 10 138 472
+('fraction, count', 0.32, 128)
+('Circles examined', 1)
+x, y, r, frameH, frameW 335 5 11 138 472
+Best Circle was 235.5 106.5 10.1242
+t, b, l, r, frameH, frameW 15 197 215 255 138 472
+Circlesf x, y, z, r 26.5 55.5 8.63134
+Circlesf x, y, z, r 22.5 81.5 10.9772
+Circlesf x, y, z, r 12.5 114.5 6.5192
+Circlesf x, y, z, r 16.5 40.5 8.74643
+sumy, ncirclesf, avgy, bot, top, deltaH 292.0 4 0.401098901099 137 15 182.0
+Tl circles len 4
+tl box shape (122, 40)
+Positional Color YELLOW 0.401098901099
+(10.124228, 0.32)
+Green light seen
+('delta_light_x,y', 6.0)
+('Circle x, y', 236, 107)
+('Frame', 8)
+('Car position', -0.83066868782, 15.8019943237, 0.405902862549)
+('Orientation', 0.109167322009, 0.98803440152)
+('cosO, sinO', 0.2157221393334069, 0.9524239571739692)
+('Angle', 0.22273981993788608)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.82166868782, 7.035005676299999, 0.618097137451)
+('Orientation correction', 22.917912317050813, 0.6677006923223159, 0.618097137451)
+('Light translated to', 22.768320134180314, 0.6677006923223159, 2.678175047722024)
+Expected TL radius 9.2145577172
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 63 11 138 472
+('fraction, count', 0.028925619834710745, 14)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 107 10 138 472
+('fraction, count', 0.335, 134)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 9 8 138 472
+('fraction, count', 0.0390625, 10)
+('Circles examined', 2)
+Best Circle was 235.5 106.5 10.1242
+t, b, l, r, frameH, frameW 15 197 215 255 138 472
+Circlesf x, y, z, r 20.5 53.5 13.435
+sumy, ncirclesf, avgy, bot, top, deltaH 53.5 1 0.293956043956 137 15 182.0
+Tl circles len 1
+tl box shape (122, 40)
+Green light not seen
+('Frame', 9)
+('Car position', -0.83066868782, 15.8019943237, 0.405902862549)
+('Orientation', 0.109167322009, 0.98803440152)
+('cosO, sinO', 0.2157221393334069, 0.9524239571739692)
+('Angle', 0.22273981993788608)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.82166868782, 7.035005676299999, 0.618097137451)
+('Orientation correction', 22.917912317050813, 0.6677006923223159, 0.618097137451)
+('Light translated to', 22.768320134180314, 0.6677006923223159, 2.678175047722024)
+Expected TL radius 9.2145577172
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 64 9 138 472
+('fraction, count', 0.046296296296296294, 15)
+('Circles examined', 1)
+('None F', 0.0, -1, 9)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 106 11 138 472
+('fraction, count', 0.29132231404958675, 141)
+('Circles examined', 1)
+Best Circle was 236.5 105.5 10.5119
+t, b, l, r, frameH, frameW 10 200 215 257 138 472
+Circlesf x, y, z, r 18.5 94.5 18.8282
+Circlesf x, y, z, r 23.5 81.5 6.5192
+Circlesf x, y, z, r 21.5 56.5 12.3491
+Circlesf x, y, z, r 10.5 81.5 7.90569
+sumy, ncirclesf, avgy, bot, top, deltaH 314.0 4 0.413157894737 137 10 190.0
+Tl circles len 4
+tl box shape (127, 42)
+Positional Color YELLOW 0.413157894737
+(10.511898, 0.29132231404958675)
+Green light seen
+('delta_light_x,y', 2.0)
+('Circle x, y', 237, 106)
+('Frame', 10)
+('Car position', -0.845777273178, 15.7992649078, 0.407093405724)
+('Orientation', 0.109031824421, 0.987997484676)
+('cosO, sinO', 0.21544633655516654, 0.9522780594522058)
+('Angle', 0.22249732369053835)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.836777273178, 7.0377350922, 0.616906594276)
+('Orientation correction', 22.933020281897917, 0.671667817023641, 0.616906594276)
+('Light translated to', 22.783473305257296, 0.671667817023641, 2.678349102610281)
+Expected TL radius 9.20842916219
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 63 11 138 472
+('fraction, count', 0.03512396694214876, 17)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 113 11 138 472
+('fraction, count', 0.2768595041322314, 134)
+('Circles examined', 1)
+Best Circle was 236.5 112.5 10.7935
+t, b, l, r, frameH, frameW 15 209 214 258 138 472
+Circlesf x, y, z, r 24.5 58.5 6.5192
+Circlesf x, y, z, r 13.5 37.5 13.5093
+Circlesf x, y, z, r 2.5 90.5 13.435
+Circlesf x, y, z, r 26.5 92.5 8.74643
+sumy, ncirclesf, avgy, bot, top, deltaH 279.0 4 0.359536082474 137 15 194.0
+Tl circles len 4
+tl box shape (122, 44)
+Positional Color GREEN 0.359536082474
+(10.793517, 0.2768595041322314)
+Green light seen
+('delta_light_x,y', 7.0)
+('Circle x, y', 237, 113)
+('Frame', 11)
+('Car position', -0.827937960625, 15.8047161102, 0.408201217651)
+('Orientation', 0.108967132286, 0.98806044532)
+('cosO, sinO', 0.215332226503497, 0.9525268872119135)
+('Angle', 0.22232712985281008)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.818937960625, 7.0322838898, 0.6157987823490001)
+('Orientation correction', 22.914253928740056, 0.6753053572749446, 0.6157987823490001)
+('Light translated to', 22.764883597220813, 0.6753053572749446, 2.6755568609279745)
+Expected TL radius 9.21594872664
+('Image x, y =', 652, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 62 9 138 472
+('fraction, count', 0.05246913580246913, 17)
+('Circles examined', 1)
+('None F', 0.0, -1, 9)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 239 107 10 138 472
+('fraction, count', 0.36, 144)
+('Circles examined', 1)
+Best Circle was 238.5 106.5 9.82344
+t, b, l, r, frameH, frameW 18 194 218 258 138 472
+Circlesf x, y, z, r 24.5 50.5 6.67083
+Circlesf x, y, z, r 23.5 71.5 7.64853
+Circlesf x, y, z, r 22.5 28.5 13.5093
+Circlesf x, y, z, r 9.5 41.5 10.1242
+Circlesf x, y, z, r 21.5 90.5 9.92472
+sumy, ncirclesf, avgy, bot, top, deltaH 282.5 5 0.321022727273 137 18 176.0
+Tl circles len 5
+tl box shape (119, 40)
+Positional Color GREEN 0.321022727273
+(9.8234406, 0.36)
+Green light seen
+('delta_light_x,y', 8.0)
+('Circle x, y', 239, 107)
+('Frame', 12)
+('Car position', -0.837228775024, 15.7974185944, 0.406150579453)
+('Orientation', 0.109278542501, 0.988021441541)
+('cosO, sinO', 0.2159390861826749, 0.9523727378895115)
+('Angle', 0.2229680751093933)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.828228775023998, 7.0395814056, 0.617849420547)
+('Orientation correction', 22.925640900262998, 0.6650316782255272, 0.617849420547)
+('Light translated to', 22.776039324722692, 0.6650316782255272, 2.6786239189464274)
+Expected TL radius 9.21143474547
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 65 10 138 472
+('fraction, count', 0.025, 10)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 106 10 138 472
+('fraction, count', 0.3425, 137)
+('Circles examined', 1)
+Best Circle was 237.5 105.5 9.51315
+t, b, l, r, frameH, frameW 19 191 218 256 138 472
+Circlesf x, y, z, r 19.5 54.5 12.0208
+Circlesf x, y, z, r 20.5 73.5 10.9772
+Circlesf x, y, z, r 20.5 89.5 10.7005
+Circlesf x, y, z, r 7.5 30.5 8.63134
+Circlesf x, y, z, r 11.5 64.5 6.5192
+sumy, ncirclesf, avgy, bot, top, deltaH 312.5 5 0.363372093023 137 19 172.0
+Tl circles len 5
+tl box shape (118, 38)
+Positional Color GREEN 0.363372093023
+(9.5131483, 0.3425)
+Green light seen
+('delta_light_x,y', 2.0)
+('Circle x, y', 238, 106)
+('Frame', 13)
+('Car position', -0.836638212204, 15.8063707352, 0.414148807526)
+('Orientation', 0.109233094888, 0.987997678958)
+('cosO, sinO', 0.21584408842948594, 0.9522788272527902)
+('Angle', 0.2228944601939198)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.827638212204, 7.0306292648, 0.609851192474)
+('Orientation correction', 22.92252592627451, 0.6582878862650361, 0.609851192474)
+('Light translated to', 22.773656962654123, 0.6582878862650361, 2.6703781359495626)
+Expected TL radius 9.21239835763
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 63 10 138 472
+('fraction, count', 0.035, 14)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 107 10 138 472
+('fraction, count', 0.365, 146)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 9 8 138 472
+('fraction, count', 0.0390625, 10)
+('Circles examined', 2)
+Best Circle was 237.5 106.5 9.82344
+t, b, l, r, frameH, frameW 18 194 217 257 138 472
+Circlesf x, y, z, r 6.5 35.5 7.51665
+Circlesf x, y, z, r 20.5 34.5 7.64853
+Circlesf x, y, z, r 21.5 71.5 7.64853
+Circlesf x, y, z, r 12.5 55.5 14.5774
+Circlesf x, y, z, r 15.5 83.5 14.5774
+Circlesf x, y, z, r 24.5 91.5 10.7005
+Circlesf x, y, z, r 8.5 107.5 8.63134
+sumy, ncirclesf, avgy, bot, top, deltaH 479.5 7 0.389204545455 137 18 176.0
+Tl circles len 7
+tl box shape (119, 40)
+Positional Color GREEN 0.389204545455
+(9.8234406, 0.365)
+Green light seen
+('delta_light_x,y', 1.0)
+('Circle x, y', 238, 107)
+('Frame', 14)
+('Car position', -0.830353140831, 15.8040266037, 0.406861782074)
+('Orientation', 0.108943674818, 0.988034550901)
+('cosO, sinO', 0.21528022964461443, 0.9524245475482815)
+('Angle', 0.22229829980164784)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.821353140831, 7.032973396299999, 0.6171382179260001)
+('Orientation correction', 22.916746103563444, 0.6759554088312436, 0.6171382179260001)
+('Light translated to', 22.767245004925492, 0.6759554088312436, 2.6771151005532134)
+Expected TL radius 9.21499285287
+('Image x, y =', 652, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 65 11 138 472
+('fraction, count', 0.0371900826446281, 18)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 105 11 138 472
+('fraction, count', 0.2603305785123967, 126)
+('Circles examined', 1)
+x, y, r, frameH, frameW 339 9 8 138 472
+('fraction, count', 0.0390625, 10)
+('Circles examined', 2)
+Best Circle was 237.5 104.5 10.5119
+t, b, l, r, frameH, frameW 9 199 216 258 138 472
+Circlesf x, y, z, r 23.5 99.5 9.61769
+Circlesf x, y, z, r 13.5 51.5 11.068
+Circlesf x, y, z, r 25.5 63.5 14.5774
+Circlesf x, y, z, r 25.5 78.5 9.61769
+sumy, ncirclesf, avgy, bot, top, deltaH 293.0 4 0.385526315789 137 9 190.0
+Tl circles len 4
+tl box shape (128, 42)
+Positional Color GREEN 0.385526315789
+(10.511898, 0.2603305785123967)
+Green light seen
+('delta_light_x,y', 2.0)
+('Circle x, y', 238, 105)
+('Frame', 15)
+('Car position', -0.830353140831, 15.8040266037, 0.406861782074)
+('Orientation', 0.108943674818, 0.988034550901)
+('cosO, sinO', 0.21528022964461443, 0.9524245475482815)
+('Angle', 0.22229829980164784)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.821353140831, 7.032973396299999, 0.6171382179260001)
+('Orientation correction', 22.916746103563444, 0.6759554088312436, 0.6171382179260001)
+('Light translated to', 22.767245004925492, 0.6759554088312436, 2.6771151005532134)
+Expected TL radius 9.21499285287
+('Image x, y =', 652, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 63 11 138 472
+('fraction, count', 0.028925619834710745, 14)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 242 106 11 138 472
+('fraction, count', 0.29132231404958675, 141)
+('Circles examined', 1)
+x, y, r, frameH, frameW 339 9 8 138 472
+('fraction, count', 0.0390625, 10)
+('Circles examined', 2)
+Best Circle was 241.5 105.5 11.068
+t, b, l, r, frameH, frameW 5 205 219 263 138 472
+Circlesf x, y, z, r 13.5 39.5 7.51665
+Circlesf x, y, z, r 22.5 65.5 8.63134
+Circlesf x, y, z, r 20.5 89.5 9.82344
+Circlesf x, y, z, r 23.5 29.5 10.1242
+Circlesf x, y, z, r 35.5 39.5 13.6565
+Circlesf x, y, z, r 22.5 103.5 9.19239
+sumy, ncirclesf, avgy, bot, top, deltaH 367.0 6 0.305833333333 137 5 200.0
+Tl circles len 6
+tl box shape (132, 44)
+Positional Color GREEN 0.305833333333
+(11.067972, 0.29132231404958675)
+Green light seen
+('delta_light_x,y', 5.0)
+('Circle x, y', 242, 106)
+('Frame', 16)
+('Car position', -0.83352458477, 15.8102941513, 0.418102025986)
+('Orientation', 0.10898838912, 0.988071129407)
+('cosO, sinO', 0.21537656146009598, 0.9525691135352492)
+('Angle', 0.2223618752382979)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.82452458477, 7.026705848699999, 0.605897974014)
+('Orientation correction', 22.918088592298858, 0.6675954695216983, 0.605897974014)
+('Light translated to', 22.769593611409174, 0.6675954695216983, 2.66604176562744)
+Expected TL radius 9.21404235756
+('Image x, y =', 653, 425)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 235 61 9 138 472
+('fraction, count', 0.04938271604938271, 16)
+('Circles examined', 1)
+('None F', 0.0, -1, 9)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 106 10 138 472
+('fraction, count', 0.355, 142)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 8 8 138 472
+('fraction, count', 0.0390625, 10)
+('Circles examined', 2)
+Best Circle was 237.5 105.5 9.82344
+t, b, l, r, frameH, frameW 17 193 217 257 138 472
+Circlesf x, y, z, r 20.5 51.5 10.1242
+Circlesf x, y, z, r 21.5 72.5 6.5192
+Circlesf x, y, z, r 30.5 28.5 17.3925
+Circlesf x, y, z, r 22.5 91.5 9.30054
+sumy, ncirclesf, avgy, bot, top, deltaH 244.0 4 0.346590909091 137 17 176.0
+Tl circles len 4
+tl box shape (120, 40)
+Positional Color GREEN 0.346590909091
+(9.8234406, 0.355)
+Green light seen
+('delta_light_x,y', 4.0)
+('Circle x, y', 238, 106)
+('Frame', 17)
+('Car position', -0.836800336838, 15.8020200729, 0.405947089195)
+('Orientation', 0.109125342271, 0.98802236535)
+('cosO, sinO', 0.21563655758044353, 0.9523763888636176)
+('Angle', 0.2226651032912349)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.827800336838, 7.0349799271, 0.618052910805)
+('Orientation correction', 22.923743500512764, 0.6676780977864842, 0.618052910805)
+('Light translated to', 22.774131390188213, 0.6676780977864842, 2.678655808916848)
+Expected TL radius 9.21220644623
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 235 66 10 138 472
+('fraction, count', 0.0375, 15)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 106 9 138 472
+('fraction, count', 0.36728395061728397, 119)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 9 8 138 472
+('fraction, count', 0.0390625, 10)
+('Circles examined', 2)
+Best Circle was 237.5 105.5 8.86002
+t, b, l, r, frameH, frameW 25 185 219 255 138 472
+Circlesf x, y, z, r 12.5 29.5 7.90569
+Circlesf x, y, z, r 18.5 44.5 10.7935
+Circlesf x, y, z, r 20.5 77.5 14.5774
+Circlesf x, y, z, r 16.5 15.5 13.5093
+sumy, ncirclesf, avgy, bot, top, deltaH 167.0 4 0.2609375 137 25 160.0
+Tl circles len 4
+tl box shape (112, 36)
+Positional Color GREEN 0.2609375
+(8.8600216, 0.36728395061728397)
+Green light seen
+('delta_light_x,y', 0.0)
+('Circle x, y', 238, 106)
+('Frame', 18)
+('Car position', -0.836800336838, 15.8020200729, 0.405947089195)
+('Orientation', 0.109125342271, 0.98802236535)
+('cosO, sinO', 0.21563655758044353, 0.9523763888636176)
+('Angle', 0.2226651032912349)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.827800336838, 7.0349799271, 0.618052910805)
+('Orientation correction', 22.923743500512764, 0.6676780977864842, 0.618052910805)
+('Light translated to', 22.774131390188213, 0.6676780977864842, 2.678655808916848)
+Expected TL radius 9.21220644623
+('Image x, y =', 653, 424)
+Check for YELLOW
+None H
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 107 10 138 472
+('fraction, count', 0.3175, 127)
+('Circles examined', 1)
+x, y, r, frameH, frameW 337 6 8 138 472
+Best Circle was 235.5 106.5 10.1242
+t, b, l, r, frameH, frameW 15 197 215 255 138 472
+Circlesf x, y, z, r 19.5 94.5 13.435
+Circlesf x, y, z, r 15.5 39.5 10.5119
+Circlesf x, y, z, r 20.5 54.5 9.61769
+Circlesf x, y, z, r 5.5 80.5 13.2098
+Circlesf x, y, z, r 16.5 108.5 7.64853
+sumy, ncirclesf, avgy, bot, top, deltaH 377.5 5 0.414835164835 137 15 182.0
+Tl circles len 5
+tl box shape (122, 40)
+Positional Color YELLOW 0.414835164835
+(10.124228, 0.3175)
+Green light seen
+('delta_light_x,y', 3.0)
+('Circle x, y', 236, 107)
+('Frame', 19)
+('Car position', -0.828944206238, 15.8001852036, 0.403411626816)
+('Orientation', 0.109822306963, 0.988002634108)
+('cosO, sinO', 0.2170094571265227, 0.9522984100086933)
+('Angle', 0.22405366726214818)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.819944206238, 7.0368147964, 0.6205883731840001)
+('Orientation correction', 22.91762142064451, 0.6398093952021204, 0.6205883731840001)
+('Light translated to', 22.76780621923331, 0.6398093952021204, 2.6806298887119517)
+Expected TL radius 9.2147657082
+('Image x, y =', 654, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 63 11 138 472
+('fraction, count', 0.024793388429752067, 12)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 235 105 10 138 472
+('fraction, count', 0.305, 122)
+('Circles examined', 1)
+x, y, r, frameH, frameW 336 6 8 138 472
+Best Circle was 234.5 104.5 9.61769
+t, b, l, r, frameH, frameW 17 191 215 253 138 472
+Circlesf x, y, z, r 22.5 55.5 6.5192
+Circlesf x, y, z, r 9.5 60.5 13.435
+Circlesf x, y, z, r 19.5 87.5 14.3003
+sumy, ncirclesf, avgy, bot, top, deltaH 203.5 3 0.389846743295 137 17 174.0
+Tl circles len 3
+tl box shape (120, 38)
+Positional Color GREEN 0.389846743295
+(9.617692, 0.305)
+Green light seen
+('delta_light_x,y', 3.0)
+('Circle x, y', 235, 105)
+('Frame', 20)
+('Car position', -0.840608119965, 15.8122463226, 0.409183144569)
+('Orientation', 0.108515746656, 0.988070695856)
+('cosO, sinO', 0.21444245861945466, 0.9525674000187203)
+('Angle', 0.2214291422580708)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.831608119965, 7.0247536774, 0.6148168554310001)
+('Orientation correction', 22.923718625940314, 0.6851289590899681, 0.6148168554310001)
+('Light translated to', 22.77439786258517, 0.6851289590899681, 2.675430782658361)
+Expected TL radius 9.21209865858
+('Image x, y =', 652, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 63 10 138 472
+('fraction, count', 0.0325, 13)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 105 11 138 472
+('fraction, count', 0.2706611570247934, 131)
+('Circles examined', 1)
+Best Circle was 237.5 104.5 10.5119
+t, b, l, r, frameH, frameW 9 199 216 258 138 472
+Circlesf x, y, z, r 16.5 45.5 7.90569
+Circlesf x, y, z, r 23.5 85.5 9.82344
+Circlesf x, y, z, r 15.5 57.5 15.5724
+Circlesf x, y, z, r 23.5 99.5 9.82344
+Circlesf x, y, z, r 10.5 86.5 11.068
+sumy, ncirclesf, avgy, bot, top, deltaH 374.5 5 0.394210526316 137 9 190.0
+Tl circles len 5
+tl box shape (128, 42)
+Positional Color GREEN 0.394210526316
+(10.511898, 0.2706611570247934)
+Green light seen
+('delta_light_x,y', 3.0)
+('Circle x, y', 238, 105)
+('Frame', 21)
+('Car position', -0.840608119965, 15.8122463226, 0.409183144569)
+('Orientation', 0.108515746656, 0.988070695856)
+('cosO, sinO', 0.21444245861945466, 0.9525674000187203)
+('Angle', 0.2214291422580708)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.831608119965, 7.0247536774, 0.6148168554310001)
+('Orientation correction', 22.923718625940314, 0.6851289590899681, 0.6148168554310001)
+('Light translated to', 22.77439786258517, 0.6851289590899681, 2.675430782658361)
+Expected TL radius 9.21209865858
+('Image x, y =', 652, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 240 64 8 138 472
+('fraction, count', 0.0546875, 14)
+('Circles examined', 1)
+('None F', 0.0, -1, 8)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 239 106 10 138 472
+('fraction, count', 0.3375, 135)
+('Circles examined', 1)
+Best Circle was 238.5 105.5 9.51315
+t, b, l, r, frameH, frameW 19 191 219 257 138 472
+Circlesf x, y, z, r 24.5 25.5 9.82344
+Circlesf x, y, z, r 20.5 77.5 9.82344
+Circlesf x, y, z, r 20.5 52.5 7.10633
+sumy, ncirclesf, avgy, bot, top, deltaH 155.5 3 0.301356589147 137 19 172.0
+Tl circles len 3
+tl box shape (118, 38)
+Positional Color GREEN 0.301356589147
+(9.5131483, 0.3375)
+Green light seen
+('delta_light_x,y', 2.0)
+('Circle x, y', 239, 106)
+('Frame', 22)
+('Car position', -0.820424318314, 15.8059396744, 0.399044036865)
+('Orientation', 0.109951395767, 0.988006681554)
+('cosO, sinO', 0.21726542732796839, 0.9523144055906942)
+('Angle', 0.22430553279054322)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.811424318314, 7.0310603256, 0.624955963135)
+('Orientation correction', 22.907989891502538, 0.6309035002148198, 0.624955963135)
+('Light translated to', 22.75782109626523, 0.6309035002148198, 2.6841127339213746)
+Expected TL radius 9.21880873887
+('Image x, y =', 654, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 63 10 138 472
+('fraction, count', 0.0425, 17)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 106 11 138 472
+('fraction, count', 0.2871900826446281, 139)
+('Circles examined', 1)
+Best Circle was 236.5 105.5 10.5119
+t, b, l, r, frameH, frameW 10 200 215 257 138 472
+Circlesf x, y, z, r 24.5 63.5 8.63134
+Circlesf x, y, z, r 22.5 98.5 10.1242
+Circlesf x, y, z, r 9.5 114.5 8.74643
+Circlesf x, y, z, r 13.5 52.5 7.64853
+Circlesf x, y, z, r 22.5 114.5 7.51665
+sumy, ncirclesf, avgy, bot, top, deltaH 443.5 5 0.466842105263 137 10 190.0
+Tl circles len 5
+tl box shape (127, 42)
+Positional Color YELLOW 0.466842105263
+(10.511898, 0.2871900826446281)
+Green light seen
+('delta_light_x,y', 2.0)
+('Circle x, y', 237, 106)
+('Frame', 23)
+('Car position', -0.827816724777, 15.8069658279, 0.408180475235)
+('Orientation', 0.10837071813, 0.988138411787)
+('cosO, sinO', 0.2141705385943897, 0.9528350416978697)
+('Angle', 0.22109731877064148)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.818816724777, 7.030034172100001, 0.615819524765)
+('Orientation correction', 22.91266553090407, 0.7013572550582765, 0.615819524765)
+('Light translated to', 22.763299844998514, 0.7013572550582765, 2.67543456249483)
+Expected TL radius 9.21658992451
+('Image x, y =', 651, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 240 64 11 138 472
+('fraction, count', 0.030991735537190084, 15)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 241 104 10 138 472
+('fraction, count', 0.2825, 113)
+('Circles examined', 1)
+x, y, r, frameH, frameW 340 3 11 138 472
+Best Circle was 240.5 103.5 9.61769
+t, b, l, r, frameH, frameW 16 190 221 259 138 472
+Circlesf x, y, z, r 20.5 75.5 6.5192
+Circlesf x, y, z, r 17.5 48.5 11.068
+Circlesf x, y, z, r 21.5 90.5 10.7935
+Circlesf x, y, z, r 19.5 118.5 17.5642
+sumy, ncirclesf, avgy, bot, top, deltaH 333.0 4 0.478448275862 137 16 174.0
+Tl circles len 4
+tl box shape (121, 38)
+Positional Color YELLOW 0.478448275862
+(9.617692, 0.2825)
+Green light seen
+('delta_light_x,y', 6.0)
+('Circle x, y', 241, 104)
+('Frame', 24)
+('Car position', -0.821897268295, 15.7933006287, 0.409846901894)
+('Orientation', 0.110015596715, 0.987961671224)
+('cosO, sinO', 0.21738238558251402, 0.9521365276154383)
+('Angle', 0.22446280069551527)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.812897268295, 7.043699371299999, 0.6141530981059999)
+('Orientation correction', 22.91304963052141, 0.6390185441018401, 0.6141530981059999)
+('Light translated to', 22.76383234820673, 0.6390185441018401, 2.6738095371506923)
+Expected TL radius 9.21637432532
+('Image x, y =', 654, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 63 11 138 472
+('fraction, count', 0.026859504132231406, 13)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 105 11 138 472
+('fraction, count', 0.2706611570247934, 131)
+('Circles examined', 1)
+x, y, r, frameH, frameW 335 5 7 138 472
+Best Circle was 235.5 104.5 10.5119
+t, b, l, r, frameH, frameW 9 199 214 256 138 472
+Circlesf x, y, z, r 17.5 53.5 11.068
+Circlesf x, y, z, r 13.5 89.5 10.7935
+Circlesf x, y, z, r 25.5 98.5 10.6066
+sumy, ncirclesf, avgy, bot, top, deltaH 241.5 3 0.423684210526 137 9 190.0
+Tl circles len 3
+tl box shape (128, 42)
+Positional Color YELLOW 0.423684210526
+(10.511898, 0.2706611570247934)
+Green light seen
+('delta_light_x,y', 6.0)
+('Circle x, y', 236, 105)
+('Frame', 25)
+('Car position', -0.821897268295, 15.7933006287, 0.409846901894)
+('Orientation', 0.110015596715, 0.987961671224)
+('cosO, sinO', 0.21738238558251402, 0.9521365276154383)
+('Angle', 0.22446280069551527)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.812897268295, 7.043699371299999, 0.6141530981059999)
+('Orientation correction', 22.91304963052141, 0.6390185441018401, 0.6141530981059999)
+('Light translated to', 22.76383234820673, 0.6390185441018401, 2.6738095371506923)
+Expected TL radius 9.21637432532
+('Image x, y =', 654, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 65 8 138 472
+('fraction, count', 0.0546875, 14)
+('Circles examined', 1)
+('None F', 0.0, -1, 8)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 106 11 138 472
+('fraction, count', 0.28512396694214875, 138)
+('Circles examined', 1)
+x, y, r, frameH, frameW 336 5 7 138 472
+Best Circle was 237.5 105.5 10.7935
+t, b, l, r, frameH, frameW 8 202 215 259 138 472
+Circlesf x, y, z, r 24.5 97.5 12.3491
+Circlesf x, y, z, r 19.5 61.5 7.90569
+Circlesf x, y, z, r 3.5 68.5 9.19239
+Circlesf x, y, z, r 22.5 84.5 6.5192
+Circlesf x, y, z, r 3.5 81.5 10.5119
+sumy, ncirclesf, avgy, bot, top, deltaH 393.5 5 0.405670103093 137 8 194.0
+Tl circles len 5
+tl box shape (129, 44)
+Positional Color YELLOW 0.405670103093
+(10.793517, 0.28512396694214875)
+Green light seen
+('delta_light_x,y', 3.0)
+('Circle x, y', 238, 106)
+('Frame', 26)
+('Car position', -0.808213472366, 15.8041286469, 0.411105871201)
+('Orientation', 0.108922700082, 0.988121463177)
+('cosO, sinO', 0.21525771555643075, 0.9527680519821107)
+('Angle', 0.22219828444989)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.799213472366, 7.032871353099999, 0.612894128799)
+('Orientation correction', 22.895386019948827, 0.6843146064272618, 0.612894128799)
+('Light translated to', 22.746354465675125, 0.6843146064272618, 2.6709660046663184)
+Expected TL radius 9.2234560187
+('Image x, y =', 652, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 235 64 10 138 472
+('fraction, count', 0.0425, 17)
+('Circles examined', 1)
+x, y, r, frameH, frameW 144 120 8 138 472
+('fraction, count', 0.03125, 8)
+('Circles examined', 2)
+('None F', 0.0, -1, 8)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 239 107 10 138 472
+('fraction, count', 0.35, 140)
+('Circles examined', 1)
+x, y, r, frameH, frameW 337 5 7 138 472
+Best Circle was 238.5 106.5 9.82344
+t, b, l, r, frameH, frameW 18 194 218 258 138 472
+Circlesf x, y, z, r 14.5 45.5 6.5192
+Circlesf x, y, z, r 18.5 21.5 18.1797
+sumy, ncirclesf, avgy, bot, top, deltaH 67.0 2 0.190340909091 137 18 176.0
+Tl circles len 2
+tl box shape (119, 40)
+Positional Color UNKNOWN 0.190340909091
+(9.8234406, 0.35)
+Green light seen
+('delta_light_x,y', 2.0)
+('Circle x, y', 239, 107)
+('Frame', 27)
+('Car position', -0.793899893761, 15.8182134628, 0.41045987606)
+('Orientation', 0.109336653578, 0.988089132684)
+('cosO, sinO', 0.21606871840891398, 0.9526402682564388)
+('Angle', 0.22303693570691804)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.784899893761, 7.0187865372000005, 0.61354012394)
+('Orientation correction', 22.878274294230962, 0.6555861147848585, 0.61354012394)
+('Light translated to', 22.729254758470017, 0.6555861147848585, 2.6700692959126324)
+Expected TL radius 9.23039502304
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 65 11 138 472
+('fraction, count', 0.0371900826446281, 18)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 106 11 138 472
+('fraction, count', 0.2727272727272727, 132)
+('Circles examined', 1)
+x, y, r, frameH, frameW 336 5 7 138 472
+Best Circle was 236.5 105.5 10.5119
+t, b, l, r, frameH, frameW 10 200 215 257 138 472
+Circlesf x, y, z, r 26.5 99.5 10.9772
+Circlesf x, y, z, r 23.5 62.5 6.5192
+Circlesf x, y, z, r 9.5 72.5 6.5192
+Circlesf x, y, z, r 10.5 48.5 8.74643
+Circlesf x, y, z, r 15.5 106.5 7.64853
+sumy, ncirclesf, avgy, bot, top, deltaH 389.5 5 0.41 137 10 190.0
+Tl circles len 5
+tl box shape (127, 42)
+Positional Color YELLOW 0.41
+(10.511898, 0.2727272727272727)
+Green light seen
+('delta_light_x,y', 3.0)
+('Circle x, y', 237, 106)
+('Frame', 28)
+('Car position', -0.793899893761, 15.8182134628, 0.41045987606)
+('Orientation', 0.109336653578, 0.988089132684)
+('cosO, sinO', 0.21606871840891398, 0.9526402682564388)
+('Angle', 0.22303693570691804)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.784899893761, 7.0187865372000005, 0.61354012394)
+('Orientation correction', 22.878274294230962, 0.6555861147848585, 0.61354012394)
+('Light translated to', 22.729254758470017, 0.6555861147848585, 2.6700692959126324)
+Expected TL radius 9.23039502304
+('Image x, y =', 653, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 235 64 11 138 472
+('fraction, count', 0.04132231404958678, 20)
+('Circles examined', 1)
+('None F', 0.0, -1, 11)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 238 106 10 138 472
+('fraction, count', 0.3025, 121)
+('Circles examined', 1)
+x, y, r, frameH, frameW 338 3 11 138 472
+Best Circle was 237.5 105.5 10.1242
+t, b, l, r, frameH, frameW 14 196 217 257 138 472
+Circlesf x, y, z, r 19.5 59.5 13.2098
+Circlesf x, y, z, r 22.5 93.5 10.7935
+sumy, ncirclesf, avgy, bot, top, deltaH 153.0 2 0.42032967033 137 14 182.0
+Tl circles len 2
+tl box shape (123, 40)
+Positional Color UNKNOWN 0.42032967033
+(10.124228, 0.3025)
+Green light seen
+('delta_light_x,y', 1.0)
+('Circle x, y', 238, 106)
+('Frame', 29)
+('Car position', -0.800296664238, 15.8041696548, 0.407783985138)
+('Orientation', 0.109104751031, 0.988088681753)
+('cosO, sinO', 0.2156103392384201, 0.9526384860167627)
+('Angle', 0.222579665522095)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.791296664238, 7.032830345199999, 0.616216014862)
+('Orientation correction', 22.888031082840097, 0.6777507832098246, 0.616216014862)
+('Light translated to', 22.738730714062875, 0.6777507832098246, 2.6736123266566745)
+Expected TL radius 9.22654842252
+('Image x, y =', 652, 424)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 237 64 10 138 472
+('fraction, count', 0.035, 14)
+('Circles examined', 1)
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 339 8 8 138 472
+('fraction, count', 0.0390625, 10)
+('Circles examined', 1)
+x, y, r, frameH, frameW 236 105 9 138 472
+('fraction, count', 0.24074074074074073, 78)
+('Circles examined', 2)
+Best Circle was 235.5 104.5 8.74643
+t, b, l, r, frameH, frameW 25 183 218 252 138 472
+Circlesf x, y, z, r 10.5 47.5 9.92472
+Circlesf x, y, z, r 22.5 82.5 10.5119
+Circlesf x, y, z, r 26.5 23.5 17.9025
+Circlesf x, y, z, r 10.5 32.5 10.7935
+Circlesf x, y, z, r 23.5 48.5 7.90569
+sumy, ncirclesf, avgy, bot, top, deltaH 234.5 5 0.296835443038 137 25 158.0
+Tl circles len 5
+tl box shape (112, 34)
+Positional Color GREEN 0.296835443038
+(8.7464275, 0.24074074074074073)
+Green light seen
+('delta_light_x,y', 3.0)
+('Circle x, y', 236, 105)
+('Frame', 30)
+('Car position', -0.772003889084, 15.8119678497, 0.417386174202)
+('Orientation', 0.108815454114, 0.988089851072)
+('cosO, sinO', 0.2150388916996686, 0.9526431075829742)
+('Angle', 0.22200792262408928)
+('Light position', 20.991, 22.837, 1.524)
+('shift light', 21.763003889084, 7.0250321502999995, 0.606613825798)
+('Orientation correction', 22.858294552563496, 0.6912200353576976, 0.606613825798)
+('Light translated to', 22.709980300576166, 0.6912200353576976, 2.661373218842943)
+Expected TL radius 9.23822906155
+('Image x, y =', 652, 425)
+Check for YELLOW
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 64 10 138 472
+('fraction, count', 0.035, 14)
+('Circles examined', 1)
+x, y, r, frameH, frameW 142 121 10 138 472
+('None F', 0.0, -1, 10)
+Check for GREEN
+Hough circle for lit light found
+x, y, r, frameH, frameW 236 105 10 138 472
+('fraction, count', 0.27, 108)
+('Circles examined', 1)
+x, y, r, frameH, frameW 339 3 11 138 472
+Best Circle was 235.5 104.5 9.51315
+t, b, l, r, frameH, frameW 18 190 216 254 138 472
+Circlesf x, y, z, r 20.5 27.5 8.63134
+Circlesf x, y, z, r 8.5 44.5 8.63134
+Circlesf x, y, z, r 16.5 53.5 11.068
+Circlesf x, y, z, r 24.5 72.5 6.5192
+Circlesf x, y, z, r 22.5 89.5 10.5119
+Circlesf x, y, z, r 12.5 71.5 10.9772
+sumy, ncirclesf, avgy, bot, top, deltaH 359.0 6 0.347868217054 137 18 172.0
+Tl circles len 6
+tl box shape (119, 38)
+Positional Color GREEN 0.347868217054
+(9.5131483, 0.27)
+Green light seen
+('delta_light_x,y', 0.0)
+('Circle x, y', 236, 105)
