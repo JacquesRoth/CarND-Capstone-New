@@ -14,7 +14,7 @@ rint = 0
 yint = 0
 gint = 0
 uint = 5
-colortxt = ['RED', 'GREEN', 'YELLOW', 'UNKNOWN']
+colortxt = ['RED', 'YELLOW', 'GREEN', 'BROKEN', 'UNKNOWN']
 global frameno 
 frameno = 0
 #
@@ -214,7 +214,7 @@ def get_hough_circles(weighted_image, hsv_image, debug):
     #
     if ncirclesf >= 2:
         if ncirclesf <= 2: posColor = TrafficLight.UNKNOWN
-        if debug: print "Positional Color", colortxt[posColor-1], avgy
+        if debug: print "Positional Color", colortxt[posColor], avgy
         global best_light_x, best_light_y, delta_light
         delta_light = abs(best_light_x - x) +\
                       abs(best_light_y - y)
@@ -473,6 +473,6 @@ def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_ro
     elif rint > max(uint, gint, yint): colorcode = TrafficLight.RED
     elif yint > max(uint, gint, rint): colorcode = TrafficLight.YELLOW
     else: colorcode = TrafficLight.GREEN
-    if debug: print colortxt[colorcode-1], frameno
+    if debug: print colortxt[colorcode], frameno
     frameno += 1
     return colorcode

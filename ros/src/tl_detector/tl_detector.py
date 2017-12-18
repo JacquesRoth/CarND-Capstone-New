@@ -12,24 +12,10 @@ import cv2
 import yaml
 import math
 STATE_COUNT_THRESHOLD = 3
+colortxt = ['RED', 'YELLOW', 'GREEN', 'BROKEN', 'UNKNOWN']
 global frameno
 frameno = 0
 
-# Experimental code for ROI from positions
-FrameH = 600
-FrameHC = FrameH / 2
-FrameW = 800
-FrameWC = FrameW / 2
-
-
-CameraHeight = 1.2 #Camera height on car
-CameraCos = 0.995  #Uptilt angle cos and sin
-CameraSin = 0.100
-CameraPan = 0
-CameraF   = 3360.0 #Camera focal length & pixel adjustments
-PanError = 0.025
-PanPixels = int(CameraF * PanError)
-#End of experimental code
 class TLDetector(object):
     def __init__(self):
         rospy.init_node('tl_detector')
@@ -234,8 +220,7 @@ class TLDetector(object):
         if frameno % 50 == 0:
             print("detector frameno, orientation", frameno, self.pose.pose.orientation.z)
         if (frameno >= 0) and (frameno < 673):
-            if frameno < 10000:#% 50 == 0:
-                cv2.imwrite("rosbags/"+str(frameno)+".png", cv_image)
+            if frameno < 1000:#% 50 == 0:
                 msg = self.pose
                 x = msg.pose.position.x
                 y = msg.pose.position.y
@@ -261,11 +246,17 @@ class TLDetector(object):
                          str(zl)  + '\n'
                 print(string)
                 self.file.write(string)
-        frameno += 1
 
         #Get classification
-        return self.light_classifier.get_classification(cv_image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz)
-
+        result = self.light_classifier.get_classification(cv_image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz)
+        if frameno > 10000:#% 50 == 0: # set to never output frames, use < to output
+            cv2.imwrite("rosbags/"+str(frameno)+".png", cv_image)
+            color =  colortxt[result]
+            cv2.putText(cv_image, color+"  "+str(frameno),(30,50),\
+                        cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0),4)
+            cv2.imwrite("rosbags/"+str(frameno)+"out.png", cv_image)
+        frameno += 1
+        return result
     def process_traffic_lights(self):
         """Finds closest visible traffic light, if one exists, and determines its
             location and color

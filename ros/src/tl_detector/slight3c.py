@@ -326,7 +326,7 @@ for k in mdata:
     print (d[0], d[1], d[2], d[3], d[6], d[7], d[8], d[9], d[10]) 
 debug = True
 kernel = np.ones((5,5),np.float32)/25
-for i in range(0, 31, 1):
+for i in range(400, 441): # 660, 1):
     print("Frame", i)
     # Position of car
     CarX = mdata[float(i)][1]
@@ -452,7 +452,7 @@ for i in range(0, 31, 1):
         cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0),4)
     #cv2.imshow('crop', cimg)
     cv2.imshow('frame',img)
-    cv2.imwrite("rosbags/%dout.png"%i, img)
+    cv2.imwrite("rosbags/sl%dout.png"%i, img)
     #cv2.imshow('maskr',maskr)
     #cv2.imshow('masky',masky)
     #cv2.imshow('maskg',maskg)
