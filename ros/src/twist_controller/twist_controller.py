@@ -16,6 +16,14 @@ class Controller(object):
                  steer_ratio,
                  min_speed,
                  max_lat_accel):
+
+        mass          = rospy.get_param('/dbw_node/vehicle_mass')
+        fuel_capacity = rospy.get_param('/dbw_node/fuel_capacity')
+        decel_limit   = rospy.get_param('/dbw_node/decel_limit')
+        wheel_radius  = rospy.get_param('/dbw_node/wheel_radius')
+        self.max_torque =  (mass + fuel_capacity * GAS_DENSITY) * decel_limit * wheel_radius
+        print "Maximum braking torque", self.max_torque
+
         self.throttle_pid = pid.PID(kp=1.5, ki=0.0, kd=0.01, mn=max_brake, mx=max_throttle)
         self.throttle_filter = lowpass.LowPassFilter(tau=0.0, ts=1.0)
 
@@ -66,7 +74,7 @@ class Controller(object):
         if throttle >= 0.0:
             brake = 0.0
         else:
-           brake = -throttle * 1809.0
+           brake = throttle * self.max_torque
            throttle = 0.0
         #rospy.loginfo("Throttle: %s" % throttle)
         return throttle, brake
