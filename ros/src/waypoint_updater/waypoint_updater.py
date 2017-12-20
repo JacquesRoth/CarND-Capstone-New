@@ -40,6 +40,9 @@ class WaypointUpdater(object):
         # TODO: Add a subscriber for /traffic_waypoint and /obstacle_waypoint below
         rospy.Subscriber('/traffic_waypoint', Int32, self.traffic_cb)
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
+        self.speed_limit =  rospy.get_param('/waypoint_loader/velocity', 80.46)
+        print "Speed Limit", self.speed_limit
+        self.speed_limit = self.speed_limit * 1000 / 3600. # m/s
         # TODO: Add other member variables you need below
         self.lightindx = -0x7FFFFFFF
         self.stop = False
@@ -60,6 +63,10 @@ class WaypointUpdater(object):
         # TODO: Implement
         #if self.count <  3:
         #    print(msg)
+        #if (self.count % 256) == 0: Causes system to not work
+        #    self.speed_limit =  rospy.get_param_cached('/waypoint_loader/velocity', 80.46)
+        #print "Speed Limit", self.speed_limit
+        #self.speed_limit = self.speed_limit * 1000 / 3600. # m/s
         self.count += 1
         # x, y, and z give the current position from the pose message
         x = msg.pose.position.x
@@ -176,7 +183,7 @@ class WaypointUpdater(object):
             self.stop = True
         while True:
             if not self.stop:
-                self.wps[i].twist.twist.linear.x = 22.35
+                self.wps[i].twist.twist.linear.x = self.speed_limit #22.352
             else:
                 xw = self.wps[i].pose.pose.position.x
                 yw = self.wps[i].pose.pose.position.y
