@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import math
-isCarla = False
+isCarla = True
 from styx_msgs.msg import TrafficLight
 
 global best_light_x, best_light_y, delta_light
