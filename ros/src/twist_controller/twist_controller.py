@@ -58,8 +58,7 @@ class Controller(object):
         # Yaw Controller
         yaw_control = self.yaw_controller.get_steering(target_linear_vel, target_angular_vel, current_linear_vel)
 
-        #steer = self.steer_filter.filt(steering + 0.1 * yaw_control)
-        steer = self.steer_filter.filt(steering)
+        steer = self.steer_filter.filt(0.2*steering + 1 * yaw_control)
 
         return steer
 
