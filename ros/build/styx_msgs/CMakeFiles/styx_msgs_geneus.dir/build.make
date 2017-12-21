@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robond/CarND-Capstone/ros/src
+CMAKE_SOURCE_DIR = /home/student/CarND-Capstone-2/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robond/CarND-Capstone/ros/build
+CMAKE_BINARY_DIR = /home/student/CarND-Capstone-2/ros/build
 
 # Utility rule file for styx_msgs_geneus.
 
@@ -63,10 +63,10 @@ styx_msgs/CMakeFiles/styx_msgs_geneus.dir/build: styx_msgs_geneus
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_geneus.dir/build
 
 styx_msgs/CMakeFiles/styx_msgs_geneus.dir/clean:
-	cd /home/robond/CarND-Capstone/ros/build/styx_msgs && $(CMAKE_COMMAND) -P CMakeFiles/styx_msgs_geneus.dir/cmake_clean.cmake
+	cd /home/student/CarND-Capstone-2/ros/build/styx_msgs && $(CMAKE_COMMAND) -P CMakeFiles/styx_msgs_geneus.dir/cmake_clean.cmake
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_geneus.dir/clean
 
 styx_msgs/CMakeFiles/styx_msgs_geneus.dir/depend:
-	cd /home/robond/CarND-Capstone/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robond/CarND-Capstone/ros/src /home/robond/CarND-Capstone/ros/src/styx_msgs /home/robond/CarND-Capstone/ros/build /home/robond/CarND-Capstone/ros/build/styx_msgs /home/robond/CarND-Capstone/ros/build/styx_msgs/CMakeFiles/styx_msgs_geneus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/CarND-Capstone-2/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CarND-Capstone-2/ros/src /home/student/CarND-Capstone-2/ros/src/styx_msgs /home/student/CarND-Capstone-2/ros/build /home/student/CarND-Capstone-2/ros/build/styx_msgs /home/student/CarND-Capstone-2/ros/build/styx_msgs/CMakeFiles/styx_msgs_geneus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : styx_msgs/CMakeFiles/styx_msgs_geneus.dir/depend
 

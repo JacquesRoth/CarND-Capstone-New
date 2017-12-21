@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robond/CarND-Capstone/ros/src
+CMAKE_SOURCE_DIR = /home/student/CarND-Capstone-2/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robond/CarND-Capstone/ros/build
+CMAKE_BINARY_DIR = /home/student/CarND-Capstone-2/ros/build
 
 # Utility rule file for roscpp_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ camera_info_publisher/CMakeFiles/roscpp_generate_messages_lisp.dir/build: roscpp
 .PHONY : camera_info_publisher/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 
 camera_info_publisher/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
-	cd /home/robond/CarND-Capstone/ros/build/camera_info_publisher && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/student/CarND-Capstone-2/ros/build/camera_info_publisher && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : camera_info_publisher/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 
 camera_info_publisher/CMakeFiles/roscpp_generate_messages_lisp.dir/depend:
-	cd /home/robond/CarND-Capstone/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robond/CarND-Capstone/ros/src /home/robond/CarND-Capstone/ros/src/camera_info_publisher /home/robond/CarND-Capstone/ros/build /home/robond/CarND-Capstone/ros/build/camera_info_publisher /home/robond/CarND-Capstone/ros/build/camera_info_publisher/CMakeFiles/roscpp_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/CarND-Capstone-2/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CarND-Capstone-2/ros/src /home/student/CarND-Capstone-2/ros/src/camera_info_publisher /home/student/CarND-Capstone-2/ros/build /home/student/CarND-Capstone-2/ros/build/camera_info_publisher /home/student/CarND-Capstone-2/ros/build/camera_info_publisher/CMakeFiles/roscpp_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : camera_info_publisher/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
 

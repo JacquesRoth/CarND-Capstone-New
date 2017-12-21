@@ -1,8 +1,8 @@
-prefix=/home/robond/CarND-Capstone/ros/install
+prefix=/home/student/CarND-Capstone-2/ros/install
 
 Name: tl_detector
 Description: Description of tl_detector
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/robond/CarND-Capstone/ros/install/lib 
+Libs: -L/home/student/CarND-Capstone-2/ros/install/lib 
 Requires: 

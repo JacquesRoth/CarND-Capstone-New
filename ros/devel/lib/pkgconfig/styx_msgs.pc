@@ -1,8 +1,8 @@
-prefix=/home/robond/CarND-Capstone/ros/devel
+prefix=/home/student/CarND-Capstone-2/ros/devel
 
 Name: styx_msgs
 Description: Description of styx_msgs
 Version: 0.0.0
-Cflags: -I/home/robond/CarND-Capstone/ros/devel/include
-Libs: -L/home/robond/CarND-Capstone/ros/devel/lib 
+Cflags: -I/home/student/CarND-Capstone-2/ros/devel/include
+Libs: -L/home/student/CarND-Capstone-2/ros/devel/lib 
 Requires: 
