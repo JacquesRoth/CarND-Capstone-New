@@ -153,8 +153,8 @@ class WaypointUpdater(object):
         # Calculate acceleration (in the reverse direction) to stop the car
         # before the next red (or yellow?) traffic light
  
-        if (self.count & 0x3f) == 0: print "lightindx", self.lightindx, self.wp_index, \
-                                                        self.lasta
+        #if (self.count & 0x3f) == 0: print "lightindx", self.lightindx, self.wp_index, \
+                                                        #self.lasta
         if self.lightindx > 0:
             stoptarget = self.lightindx - 5
             if stoptarget < 0: stoptarget += len(self.wps)
@@ -168,17 +168,16 @@ class WaypointUpdater(object):
             di = i - stoptarget
             if di < 0: di += len(self.wps)
             #if (s < .1) or ((di > 20) and self.stop): a = 5.0
-            if (s < 0.01):  a = 9.0
+            if (s < 0.01):  a = lastspeed * lastspeed / (0.01 + 0.01)
             else:
                 a = lastspeed * lastspeed / (s + s) #(s + s) + 1.5
-                if a > 9.0: a = 9.0
         else: a = 0.0
         count  = LOOKAHEAD_WPS
         finalwps = []
         v = lastspeed
         nexti = i + 1
         if nexti >= len(self.wps): nexti = 0
-        if (a > 4.0) and not(self.isYellow and a >= 6.0):
+        if (a > 2.0) and not(self.isYellow and a >= 6.0):
             #print "Stopping", i
             self.stop = True
         while True:
@@ -190,9 +189,10 @@ class WaypointUpdater(object):
                 dx = self.wps[nexti].pose.pose.position.x-xw
                 dx = self.wps[nexti].pose.pose.position.y-yw
                 d = math.sqrt(dx * dx + dy * dy)
-                if v > .01: v -= (a + 1.0) * d/v
-                else: v = 0.0
-                if v < 0.0: v = 0.0
+                temp = (v*v-2*a*d) 
+		if temp >= 0: v = math.sqrt(temp)
+		else: v = 0
+	        if v < 0.0: v = 0.0
                 if (i >= stoptarget) and (i <= self.lightindx): v = 0.0
                 self.wps[i].twist.twist.linear.x = v
             finalwps += [self.wps[i]]

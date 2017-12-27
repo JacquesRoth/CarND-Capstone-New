@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robond/CarND-Capstone/ros/src
+CMAKE_SOURCE_DIR = /home/student/CarND-Capstone-2/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robond/CarND-Capstone/ros/build
+CMAKE_BINARY_DIR = /home/student/CarND-Capstone-2/ros/build
 
 # Utility rule file for bond_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ waypoint_follower/CMakeFiles/bond_generate_messages_cpp.dir/build: bond_generate
 .PHONY : waypoint_follower/CMakeFiles/bond_generate_messages_cpp.dir/build
 
 waypoint_follower/CMakeFiles/bond_generate_messages_cpp.dir/clean:
-	cd /home/robond/CarND-Capstone/ros/build/waypoint_follower && $(CMAKE_COMMAND) -P CMakeFiles/bond_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/student/CarND-Capstone-2/ros/build/waypoint_follower && $(CMAKE_COMMAND) -P CMakeFiles/bond_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : waypoint_follower/CMakeFiles/bond_generate_messages_cpp.dir/clean
 
 waypoint_follower/CMakeFiles/bond_generate_messages_cpp.dir/depend:
-	cd /home/robond/CarND-Capstone/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robond/CarND-Capstone/ros/src /home/robond/CarND-Capstone/ros/src/waypoint_follower /home/robond/CarND-Capstone/ros/build /home/robond/CarND-Capstone/ros/build/waypoint_follower /home/robond/CarND-Capstone/ros/build/waypoint_follower/CMakeFiles/bond_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/CarND-Capstone-2/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CarND-Capstone-2/ros/src /home/student/CarND-Capstone-2/ros/src/waypoint_follower /home/student/CarND-Capstone-2/ros/build /home/student/CarND-Capstone-2/ros/build/waypoint_follower /home/student/CarND-Capstone-2/ros/build/waypoint_follower/CMakeFiles/bond_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : waypoint_follower/CMakeFiles/bond_generate_messages_cpp.dir/depend
 

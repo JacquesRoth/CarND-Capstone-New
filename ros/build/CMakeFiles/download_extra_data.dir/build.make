@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robond/CarND-Capstone/ros/src
+CMAKE_SOURCE_DIR = /home/student/CarND-Capstone-2/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robond/CarND-Capstone/ros/build
+CMAKE_BINARY_DIR = /home/student/CarND-Capstone-2/ros/build
 
 # Utility rule file for download_extra_data.
 
@@ -67,6 +67,6 @@ CMakeFiles/download_extra_data.dir/clean:
 .PHONY : CMakeFiles/download_extra_data.dir/clean
 
 CMakeFiles/download_extra_data.dir/depend:
-	cd /home/robond/CarND-Capstone/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robond/CarND-Capstone/ros/src /home/robond/CarND-Capstone/ros/src /home/robond/CarND-Capstone/ros/build /home/robond/CarND-Capstone/ros/build /home/robond/CarND-Capstone/ros/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/CarND-Capstone-2/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/CarND-Capstone-2/ros/src /home/student/CarND-Capstone-2/ros/src /home/student/CarND-Capstone-2/ros/build /home/student/CarND-Capstone-2/ros/build /home/student/CarND-Capstone-2/ros/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/download_extra_data.dir/depend
 
