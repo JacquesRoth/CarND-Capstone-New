@@ -57,7 +57,6 @@ class TLDetector(object):
         self.count1 = 0
         self.wp_index = None
         self.trace = False
-        self.file = open("motionc.txt","w")
         rospy.spin()
 
     def pose_cb(self, msg):
@@ -71,7 +70,6 @@ class TLDetector(object):
     def traffic_cb(self, msg):
         self.lights = msg.lights
         if self.waypoints == None: 
-            if (self.count & 0xff) == 0: print "No waypoints yet"
             self.count += 1
             return
         # Create/maintain a dictionary of traffic lights
@@ -111,10 +109,6 @@ class TLDetector(object):
                        mindist = dist
                        bestind = j
                 self.tl_dict[(xl, yl)] = (state, bestind, i)
-                #print ("Closest light state", state)
-        if (self.count & 0xff) == 0:
-           print "TL dictionary"
-           print(self.tl_dict)
         self.count += 1
 
     def image_cb(self, msg):
@@ -280,7 +274,6 @@ class TLDetector(object):
 
             #TODO find the closest visible traffic light (if one exists)
             mindist = 1000000
-            if self.trace: print "Find closest light", car_position
             for i in self.tl_dict:
                 j = self.tl_dict[i][1]
                 d = j - car_position
@@ -289,7 +282,6 @@ class TLDetector(object):
                     bestind = j
                     light = i
                     mindist = d
-                if self.trace: print car_position, j, d, mindist, bestind
             #
             # Find region of interest by car position and Light Position
             #
@@ -304,16 +296,13 @@ class TLDetector(object):
             Ly   = self.lights[lighti].pose.pose.position.y
             Lz   = self.lights[lighti].pose.pose.position.z
             state = self.tl_dict[light][0]
-            if (self.count1 & 0x7f) == 0: print "Car wp index", car_position, bestind, state
             self.count1 += 1
         if light:
             #foobar =  to use light states from simulator
             state = self.get_light_state(light, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz) #state =
             light_wp = bestind
-            print "tl_detector found light", state, light_wp, frameno
             return light_wp, state
-        else:
-            print "tl_detector no light found"
+
         #self.waypoints = None
         return -1, TrafficLight.UNKNOWN
 
