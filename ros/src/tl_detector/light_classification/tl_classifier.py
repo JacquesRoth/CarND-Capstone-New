@@ -24,9 +24,9 @@ def traffic_light_msg_to_string(traffic_light_msg):
 class TLClassifier(object):
     def __init__(self, is_carla):
         self.is_carla = is_carla
-        if is_carla:
+        self.use_DL = False
+        if is_carla and self.use_DL:
             self.dl_classifier = DeepLearningDetector()
-            self.use_DL = False
 
     def get_classification(self, image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz):
         """Determines the color of the traffic light in the image

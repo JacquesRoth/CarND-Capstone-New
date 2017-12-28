@@ -41,7 +41,6 @@ class WaypointUpdater(object):
         rospy.Subscriber('/traffic_waypoint', Int32, self.traffic_cb)
         self.final_waypoints_pub = rospy.Publisher('final_waypoints', Lane, queue_size=1)
         self.speed_limit =  rospy.get_param('/waypoint_loader/velocity', 80.46)
-        print "Speed Limit", self.speed_limit
         self.speed_limit = self.speed_limit * 1000 / 3600. # m/s
         # TODO: Add other member variables you need below
         self.lightindx = -0x7FFFFFFF
