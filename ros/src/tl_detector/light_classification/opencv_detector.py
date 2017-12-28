@@ -257,7 +257,7 @@ def recognize_green_light(hsv_image, isCarla):
     upper_green = np.array([5, 5, 255])
     green2 = recognize_light(hsv_image, lower_green, upper_green)
     green1 = cv2.addWeighted(green1, 1.0, green2, 1.0, 0.0)
-    result, bestfraction, posColor = get_hough_circles(green1, hsv_image, True)
+    result, bestfraction, posColor = get_hough_circles(green1, hsv_image, isCarla, True)
     return (result, bestfraction, posColor)
 
 
