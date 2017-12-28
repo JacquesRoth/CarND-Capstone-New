@@ -6,13 +6,12 @@ from styx_msgs.msg import TrafficLight
 
 from utils import load_pbtxt
 
-if tf.__version__ != '1.4.0':
-  raise ImportError('Please upgrade your tensorflow installation to v1.4.0!')
-
 THRESHOLD = 0.3
 
 class DeepLearningDetector:
   def __init__(self):
+    if tf.__version__ != '1.4.0':
+      raise ImportError('Please upgrade your tensorflow installation to v1.4.0!')
     rospy.logwarn('DeepLearningDetector init method')
     self.carla = True
     if self.carla:
