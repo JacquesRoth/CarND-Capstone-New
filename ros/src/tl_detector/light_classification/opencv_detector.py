@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import math
-isCarla = False
 from styx_msgs.msg import TrafficLight
 
 global best_light_x, best_light_y, delta_light
@@ -77,7 +76,8 @@ def recognize_light(image, lower_range, upper_range):
     ranged_image = cv2.inRange(image, lower_range, upper_range)
     return ranged_image
 
-def get_hough_circles(weighted_image, hsv_image, debug):
+
+def get_hough_circles(weighted_image, hsv_image, isCarla, debug):
 
     global rexpected
     bestfraction = 0.0
@@ -99,13 +99,9 @@ def get_hough_circles(weighted_image, hsv_image, debug):
     # For Carla examine the filled in area around the suspected traffic lights and find the most
     # filled.
     #
-    if circles == None:
-        if debug: print "None H"
+    if circles is None:
         return (None, bestfraction, posColor)
-    elif debug: print "Hough circle for lit light found"
     bestcircle = None
-    bestcount = -1
-    bestindex = 0
     frameH, frameW = blur_img.shape
     #
     # Look at circles returned and pick out the best filled in
@@ -116,7 +112,6 @@ def get_hough_circles(weighted_image, hsv_image, debug):
         x = int(circle[0]+0.5)
         y = int(circle[1]+0.5)
         r = int(circle[2]+0.5)
-        if debug: print "x, y, r, frameH, frameW", x, y, r, frameH, frameW
         if (y < r) or y > (frameH-2*r): #6*r):
             i+= 1
             continue
@@ -126,17 +121,13 @@ def get_hough_circles(weighted_image, hsv_image, debug):
         square_img = weighted_image[y-r:y+r, x-r:x+r]
         count  = np.count_nonzero(square_img)
         fraction = float(count) / (4.0 * r * r)
-        if debug: print "fraction, count", fraction, count
         if (fraction  > 0.2) and (count > 10) and (fraction > bestfraction):
             bestcount = count
             bestcircle = circle
             bestfraction = fraction
             bestindex = i
         i += 1
-        if debug: print "Circles examined", i
     if bestcircle == None:
-        if debug:
-            print "None F", bestfraction, bestcount, r
         return (None, bestfraction, posColor)
     #
     # Form a rectangular image around the suspected traffic light and look for 3 lights total
@@ -151,9 +142,7 @@ def get_hough_circles(weighted_image, hsv_image, debug):
     bot =   int(y + 9.0 * r)
     left =  int(x - 2.0 * r)
     right = int(x + 2.0 * r)
-    if debug:
-        print "Best Circle was", x, y, r
-        print "t, b, l, r, frameH, frameW", top, bot, left, right, frameH, frameW
+
     deltaH = float(bot - top)
     toporig = top
     if top < 0: top = 0
@@ -192,29 +181,22 @@ def get_hough_circles(weighted_image, hsv_image, debug):
                 if debug:
                     xf = circlef[0]
                     rf = circlef[2] 
-                    if debug: print "Circlesf x, y, z, r", xf, yf, rf
                 ncirclesf += 1
                 if ncirclesf >= 40: break
             if ncirclesf != 0:
                 avgy =  sumy/float(ncirclesf)
                 avgy /= deltaH
-                print "sumy, ncirclesf, avgy, bot, top, deltaH", sumy, ncirclesf, avgy,\
-                      bot, top, deltaH 
                 if   avgy >= 0.6 : posColor = TrafficLight.RED
                 elif avgy <= 0.4 : posColor = TrafficLight.GREEN
                 else                : posColor = TrafficLight.YELLOW
             else                    : posColor = TrafficLight.UNKNOWN
-        if debug:
-            print "Tl circles len", ncirclesf
-            #cv2.imshow('tl_box', maskf)
-            print "tl box shape", maskf.shape
+
     #
     # If 2 or more lights detected, return the light most believed to be lit, 
     # the fill factor, and the positional Color
     #
     if ncirclesf >= 2:
         if ncirclesf <= 2: posColor = TrafficLight.UNKNOWN
-        if debug: print "Positional Color", colortxt[posColor], avgy
         global best_light_x, best_light_y, delta_light
         delta_light = abs(best_light_x - x) +\
                       abs(best_light_y - y)
@@ -227,7 +209,8 @@ def get_hough_circles(weighted_image, hsv_image, debug):
     if debug: print bestcircle[2], bestfraction
     return (result, bestfraction, posColor)
 
-def recognize_red_light(hsv_image):
+
+def recognize_red_light(hsv_image, isCarla):
     if not isCarla:
         lower_red = np.array([0,  60, 130])
         upper_red = np.array([10, 255, 255])
@@ -238,7 +221,8 @@ def recognize_red_light(hsv_image):
         red2 = recognize_light(hsv_image, lower_red, upper_red)
 
         weighted_img = cv2.addWeighted(red1, 1.0, red2, 1.0, 0.0)
-        return get_hough_circles(weighted_img, None, False)
+        return get_hough_circles(weighted_img, None, isCarla, False)
+
 #
 # Carla does not use a red light color recognition routine as the red and yellow
 # lights both appear yellow.
@@ -248,7 +232,9 @@ def recognize_red_light(hsv_image):
 # It is not really necessary to recognize green lights, except for display
 # purposes.
 #
-def recognize_green_light(hsv_image):
+
+
+def recognize_green_light(hsv_image, isCarla):
     if not isCarla:
         lower_green = np.array([50, 100, 120])
         upper_green = np.array([80, 255, 255])
@@ -259,12 +245,11 @@ def recognize_green_light(hsv_image):
         green2 = recognize_light(hsv_image, lower_green, upper_green)
 
         weighted_img = cv2.addWeighted(green1, 1.0, green2, 1.0, 0.0)
-        return get_hough_circles(weighted_img, None, False)
+        return get_hough_circles(weighted_img, None, isCarla=False, debug=False)
 #
 # Carla has a green light that appears almost white in the center
 # with a green ring around it.
 #
-    debug = True
     lower_green = np.array([ 40,   80,  90])
     upper_green = np.array([140,  255, 255])
     green1 = recognize_light(hsv_image, lower_green, upper_green)
@@ -272,15 +257,11 @@ def recognize_green_light(hsv_image):
     upper_green = np.array([5, 5, 255])
     green2 = recognize_light(hsv_image, lower_green, upper_green)
     green1 = cv2.addWeighted(green1, 1.0, green2, 1.0, 0.0)
-    if debug: print "Check for GREEN"
     result, bestfraction, posColor = get_hough_circles(green1, hsv_image, True)
-    if debug:
-        if result !=  None: print 'Green light seen'
-        else: print'Green light not seen'
-    #cv2.imshow('Green image', green1)
     return (result, bestfraction, posColor)
 
-def recognize_yellow_light(hsv_image):
+
+def recognize_yellow_light(hsv_image, isCarla):
     if not isCarla:
         lower_yellow = np.array([30, 70, 150])
         upper_yellow = np.array([45, 170, 180])
@@ -291,19 +272,16 @@ def recognize_yellow_light(hsv_image):
         yellow2 = recognize_light(hsv_image, lower_yellow, upper_yellow)
 
         weighted_img = cv2.addWeighted(yellow1, 1.0, yellow2, 1.0, 0.0)
-        return (get_hough_circles(weighted_img, None, False), 0.0, None)
+        return (get_hough_circles(weighted_img, None, isCarla=False, debug=False), 0.0, None)
 #
 # For Carla, the red and yellow lights are approximately the same color
 #
-    debug = True
     lower_yellow = np.array([15,  90, 100])
     upper_yellow = np.array([35, 255, 255])
     yellow1 = recognize_light(hsv_image, lower_yellow, upper_yellow)
-    if debug: print "Check for YELLOW/RED"
-    result, bestfraction, posColor =  get_hough_circles(yellow1, hsv_image, True)
-    if debug and (result !=  None): print('Yellow/Red light seen')
-    #cv2.imshow('Yellow image', yellow1)
+    result, bestfraction, posColor =  get_hough_circles(yellow1, hsv_image, isCarla=False, debug=False)
     return (result, bestfraction, posColor)
+
 
 def get_canny_edge(weighted_img):
     kernel       = np.ones((5,5), np.uint8)
@@ -319,7 +297,7 @@ def get_canny_edge(weighted_img):
     return cv2.Canny(closed, 50, 70)
 
 
-def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_roi=False):
+def recognize_traffic_lights(image, isCarla, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_roi=False):
     global rint, yint, gint, uint
     global frameno
     global rexpected
@@ -343,15 +321,15 @@ def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_ro
         # Convert to HSV color space to recognize the traffic light
         hsv_image = cv2.cvtColor(image_for_recognizing, cv2.COLOR_BGR2HSV)
 
-        red_circles = recognize_red_light(hsv_image)[0]
+        red_circles = recognize_red_light(hsv_image, isCarla=False)[0]
         if red_circles is not None:
             return TrafficLight.RED
 
-        green_circles = recognize_green_light(hsv_image)[0]
+        green_circles = recognize_green_light(hsv_image, isCarla=False)[0]
         if green_circles is not None:
             return TrafficLight.GREEN
 
-        yellow_circles = recognize_yellow_light(hsv_image)[0]
+        yellow_circles = recognize_yellow_light(hsv_image, isCarla=False)[0]
         if yellow_circles is not None:
             return TrafficLight.YELLOW
 
@@ -365,22 +343,15 @@ def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_ro
     FrameH, FrameW, _ = image.shape
     FrameHC = FrameH / 2
     FrameWC = FrameW / 2
-    debug = True
     cosO = 2.0 * Oz * Ow
     sinO = 2.0 * Ow * Ow - 1.0
     CarO = math.atan2(cosO, sinO)
-    if debug:
-        print 'Car position', CarX, CarY, CarZ
-        print 'Orientation', Oz, Ow
-        print 'cosO, sinO', cosO, sinO
-        print 'Angle', CarO
-        print 'Light position', Lx, Ly, Lz
+
     #Translate traffic light position so camera is at (0, 0, 0)
     Lx -= CarX
     Ly -= CarY
     Lz -= CarZ + CameraHeight
-    if debug: print 'shift light', Lx, Ly, Lz
-    
+
     #Rotate traffic light position by orientation so camera
     # faces along the x axis
     #Lz needs no changes
@@ -390,7 +361,7 @@ def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_ro
     Lxt = Lx
     Lx =  Lx * cosO + Ly  * sinO
     Ly =  Ly * cosO - Lxt * sinO
-    if debug: print 'Orientation correction', Lx, Ly, Lz
+
     #
     #Rotate traffic light position by camera tilt so camera faces
     #along the x axis
@@ -399,7 +370,6 @@ def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_ro
     Lxt = Lx
     Lx =  Lx  * CameraCos + Lz * CameraSin
     Lz = -Lxt * CameraSin + Lz * CameraCos
-    print("Light translated to", Lx, Ly, Lz)
     #
     # Calculate image position
     #
@@ -409,12 +379,10 @@ def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_ro
     # Calculate expected radius of traffic light
     #
     rexpected = CameraF * 0.2 / Lx
-    if debug: print "Expected TL radius", rexpected
     if   Ix < 0:       Ix = 0
     elif Ix >= FrameW: Ix = FrameW - 1
     if   Iy < 0:       Iy = 0
     elif Iy >= FrameH: Iy = FrameH - 1
-    if debug: print("Image x, y =", Ix, Iy)
     RecWC = int(CameraF * 1.5 / Lx)
     RecHC = int(CameraF * 1.5 / Lx)
     if RecWC < 10: RecWC = 10
@@ -437,18 +405,18 @@ def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_ro
     hsv_image = cv2.cvtColor(cimg,
                              cv2.COLOR_BGR2HSV)
     # Match yellow/red lights using the same color filter
-    yellow_circles, fractiony, posYellow = recognize_yellow_light(hsv_image)
+    yellow_circles, fractiony, posYellow = recognize_yellow_light(hsv_image, isCarla=True)
     if yellow_circles is not None:
         colorcode = posYellow
     else:
         #
         # It is not really necessary to check for green lights.
         #
-        green_circles, fractiong, posGreen = recognize_green_light(hsv_image)
+        green_circles, fractiong, posGreen = recognize_green_light(hsv_image, isCarla=True)
         if green_circles is not None:
             colorcode = TrafficLight.GREEN
         else: colorcode = TrafficLight.UNKNOWN
-    #if (delta_light > 40.0): colorcode = UNKNOWN
+
     if colorcode == TrafficLight.RED:
         if rint != 5: rint += 1
         if uint != 0: uint -= 1
@@ -473,6 +441,5 @@ def recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz, use_ro
     elif rint > max(uint, gint, yint): colorcode = TrafficLight.RED
     elif yint > max(uint, gint, rint): colorcode = TrafficLight.YELLOW
     else: colorcode = TrafficLight.GREEN
-    if debug: print colortxt[colorcode], frameno
     frameno += 1
     return colorcode

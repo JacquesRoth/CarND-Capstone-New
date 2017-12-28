@@ -13,8 +13,6 @@ import yaml
 import math
 STATE_COUNT_THRESHOLD = 3
 colortxt = ['RED', 'YELLOW', 'GREEN', 'BROKEN', 'UNKNOWN']
-global frameno
-frameno = 0
 
 class TLDetector(object):
     def __init__(self):
@@ -44,8 +42,7 @@ class TLDetector(object):
         self.upcoming_red_light_pub = rospy.Publisher('/traffic_waypoint', Int32, queue_size=1)
 
         self.bridge = CvBridge()
-        self.is_carla = rospy.get_param("/is_carla", False)
-        self.light_classifier = TLClassifier(self.is_carla)
+        self.light_classifier = TLClassifier(False)
         self.listener = tf.TransformListener()
 
         self.state = TrafficLight.UNKNOWN
@@ -77,9 +74,7 @@ class TLDetector(object):
             xl = self.lights[i].pose.pose.position.x
             yl = self.lights[i].pose.pose.position.y
             zl = self.lights[i].pose.pose.position.z
-            #if  (self.count & 0x1ff) == 0:
-            #    zl = self.lights[i].pose.pose.position.z
-            #    print("light positions",  xl, yl,  zl)
+
             state = self.lights[i].state
             if (xl, yl) in self.tl_dict:
                 oldstate, wpl, oldindex = self.tl_dict[(xl, yl)]
@@ -212,47 +207,11 @@ class TLDetector(object):
             return False
 
         cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
-        global frameno
-        if frameno % 50 == 0:
-            print("detector frameno, orientation", frameno, self.pose.pose.orientation.z)
-        if (frameno >= 0) and (frameno < 673):
-            if frameno < 1000:#% 50 == 0:
-                msg = self.pose
-                x = msg.pose.position.x
-                y = msg.pose.position.y
-                z = msg.pose.position.z
-                xq = msg.pose.orientation.x
-                yq = msg.pose.orientation.y
-                zq = msg.pose.orientation.z
-                wq = msg.pose.orientation.w
-                lighti = self.tl_dict[light][2]
-                xl = self.lights[lighti].pose.pose.position.x
-                yl = self.lights[lighti].pose.pose.position.y
-                zl = self.lights[lighti].pose.pose.position.z
-                string = str(frameno) + ',' + \
-                         str(x)   + ','+ \
-                         str(y)   + ','+ \
-                         str(z)   + ','+ \
-                         str(xq)  + ','+ \
-                         str(yq)  + ','+ \
-                         str(zq)  + ','+ \
-                         str(wq)  + ',' + \
-                         str(xl)  + ','+ \
-                         str(yl)  + ','+ \
-                         str(zl)  + '\n'
-                print(string)
-                self.file.write(string)
 
         #Get classification
         result = self.light_classifier.get_classification(cv_image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz)
-        if frameno > 10000:#% 50 == 0: # set to never output frames, use < to output
-            #cv2.imwrite("rosbags/"+str(frameno)+".png", cv_image)
-            color =  colortxt[result]
-            #cv2.putText(cv_image, color+"  "+str(frameno),(30,50),\
-            #            cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0),4)
-            #cv2.imwrite("rosbags/"+str(frameno)+"out.png", cv_image)
-        frameno += 1
         return result
+
     def process_traffic_lights(self):
         """Finds closest visible traffic light, if one exists, and determines its
             location and color
