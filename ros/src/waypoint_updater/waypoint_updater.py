@@ -62,19 +62,12 @@ class WaypointUpdater(object):
 
     def pose_cb(self, msg):
         if self.wps == None: return
-        # TODO: Implement
-        #if self.count <  3:
-        #    print(msg)
-        #if (self.count % 256) == 0: Causes system to not work
-        #    self.speed_limit =  rospy.get_param_cached('/waypoint_loader/velocity', 80.46)
-        #print "Speed Limit", self.speed_limit
-        #self.speed_limit = self.speed_limit * 1000 / 3600. # m/s
         self.count += 1
         # x, y, and z give the current position from the pose message
         x = msg.pose.position.x
         y = msg.pose.position.y
         z = msg.pose.position.z
-        #print (self.wps[0])
+
         # if the previous waypoint of the car is unknown, find the best one
         if self.wp_index == None:
             mindist = 1000000.0
@@ -88,8 +81,8 @@ class WaypointUpdater(object):
                     bestind = i
                     mindist = dist
             self.wp_index = bestind
-        # Otherwise, increment the index to find the closest waypoint
         else:
+            # Otherwise, increment the index to find the closest waypoint
             bestind = self.wp_index
             i = bestind
             xw = self.wps[i].pose.pose.position.x
@@ -166,10 +159,9 @@ class WaypointUpdater(object):
             dxl = self.wps[stoptarget].pose.pose.position.x-xw
             dyl = self.wps[stoptarget].pose.pose.position.y-yw
             s = math.sqrt(dxl*dxl + dyl*dyl)
-            #Calculate difference i - light waypoint with wraparound
+            # Calculate difference i - light waypoint with wraparound
             di = i - stoptarget
             if di < 0: di += len(self.wps)
-            #if (s < .1) or ((di > 20) and self.stop): a = 5.0
             if (s < 0.01):  a = 9.0
             else:
                 a = lastspeed * lastspeed / (s + s) #(s + s) + 1.5
@@ -181,7 +173,6 @@ class WaypointUpdater(object):
         nexti = i + 1
         if nexti >= len(self.wps): nexti = 0
         if (a > 4.0) and not(self.isYellow and a >= 6.0):
-            #print "Stopping", i
             if not self.stop:
                 self.stop_accel = a
                 self.stop_v = v
@@ -189,7 +180,7 @@ class WaypointUpdater(object):
         if self.stop:
             self.stop_v -= 0.02 * self.stop_accel
             if self.stop_v < 0.0: self.stop_v = 0.0 
-        #print "a, v", a, v
+
         while True:
             if not self.stop:
                 self.wps[i].twist.twist.linear.x = self.speed_limit #22.352
@@ -219,13 +210,9 @@ class WaypointUpdater(object):
         self.final_waypoints_pub.publish(lane)
 
     def waypoints_cb(self, lane):
-        # TODO: Implement
-        print ("Waypoints  message received")
-        #print(lane.waypoints[0:10])
         self.wps = lane.waypoints
 
     def traffic_cb(self, msg):
-        # TODO: Callback for /traffic_waypoint message. Implement
         if msg.data != -0x7FFFFFFF:
             if msg.data < 0:
                 self.lightindx = -msg.data
@@ -236,17 +223,10 @@ class WaypointUpdater(object):
         else:
             self.stop = False
             self.lightindx = -0x7FFFFFFF
-        #self.lightindx -= 40
-        #if self.lightindx < 0: self.lightindx += len(self.wps)
-        #print "Traffic callback msg", msg
-
 
     def obstacle_cb(self, msg):
         # TODO: Callback for /obstacle_waypoint message. We will implement it later
         pass
-
-    #def lights_cb(self, msg):
-    #    print "Traffic lights", msg
 
     def get_waypoint_velocity(self, waypoint):
         return waypoint.twist.twist.linear.x
