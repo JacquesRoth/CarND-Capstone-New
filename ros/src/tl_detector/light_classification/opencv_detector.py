@@ -172,7 +172,7 @@ def get_hough_circles(weighted_image, hsv_image, isCarla, debug):
         # Otherwise, assume a yellow (center) light.
         #
         ncirclesf = 0
-        if circlesf != None:
+        if circlesf is not None:
             sumy = 0.0
             for circlef in circlesf[0,:]:
                 yf = circlef[1]
