@@ -24,7 +24,7 @@ class Controller(object):
         self.max_torque =  (mass + fuel_capacity * GAS_DENSITY) * decel_limit * wheel_radius
         print "Maximum braking torque", self.max_torque
 
-        self.throttle_pid = pid.PID(kp=1.5, ki=0.0, kd=0.01, mn=max_brake, mx=max_throttle)
+        self.throttle_pid = pid.PID(kp=1.5, ki=0.0, kd=0.01, mn=-1.0, mx=1.0) #mn=max_brake, mx=max_throttle)
         self.throttle_filter = lowpass.LowPassFilter(tau=0.0, ts=1.0)
 
         self.steer_pid = pid.PID(kp=0.5, ki=0.0, kd=0.2, mn=-max_steer_angle, mx=max_steer_angle)
@@ -76,6 +76,7 @@ class Controller(object):
         else:
            brake = throttle * self.max_torque
            throttle = 0.0
+        #print "throttle, brake, cte", throttle, brake, velocity_cte
         #rospy.loginfo("Throttle: %s" % throttle)
         return throttle, brake
 

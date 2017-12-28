@@ -51,6 +51,9 @@ class WaypointUpdater(object):
         self.current_angular_velocity = None
         self.lasta = 0.0
         self.frameno = 0
+        # New
+        self.stop_accel = 0.0
+        self.stop_v = 0.0
         rospy.spin()
 
     def current_velocity_cb(self, msg):
@@ -180,7 +183,14 @@ class WaypointUpdater(object):
         if nexti >= len(self.wps): nexti = 0
         if (a > 4.0) and not(self.isYellow and a >= 6.0):
             #print "Stopping", i
+            if not self.stop:
+                self.stop_accel = a
+                self.stop_v = v
             self.stop = True
+        if self.stop:
+            self.stop_v -= 0.02 * self.stop_accel
+            if self.stop_v < 0.0: self.stop_v = 0.0 
+        #print "a, v", a, v
         while True:
             if not self.stop:
                 self.wps[i].twist.twist.linear.x = self.speed_limit #22.352
@@ -194,6 +204,7 @@ class WaypointUpdater(object):
                 else: v = 0.0
                 if v < 0.0: v = 0.0
                 if (i >= stoptarget) and (i <= self.lightindx): v = 0.0
+                if self.stop_v < v: v = self.stop_v
                 self.wps[i].twist.twist.linear.x = v
             finalwps += [self.wps[i]]
             count -= 1
