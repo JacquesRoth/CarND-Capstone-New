@@ -23,7 +23,6 @@ def traffic_light_msg_to_string(traffic_light_msg):
 class TLClassifier(object):
     def __init__(self, is_carla):
         self.is_carla = is_carla
-        print("Value of Carla is "+ str(is_carla))
         if is_carla:
             self.dl_classifier = DeepLearningDetector()
 
@@ -35,10 +34,9 @@ class TLClassifier(object):
             int: ID of traffic light color (specified in styx_msgs/TrafficLight)
         """
         if self.is_carla:
-		    traffic_light = self.dl_classifier.detect(image)
-		else:
+            traffic_light = self.dl_classifier.detect(image)
+        else:
             traffic_light = recognize_traffic_lights(image, CarX, CarY, CarZ, Oz, Ow, Lx, Ly, Lz)
             rospy.logdebug("Found Traffic Light: %s", traffic_light_msg_to_string(traffic_light))
-            return traffic_light
 
-        return TrafficLight.UNKNOWN
+        return traffic_light
