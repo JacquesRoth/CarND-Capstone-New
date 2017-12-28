@@ -221,7 +221,7 @@ def recognize_red_light(hsv_image, isCarla):
         red2 = recognize_light(hsv_image, lower_red, upper_red)
 
         weighted_img = cv2.addWeighted(red1, 1.0, red2, 1.0, 0.0)
-        return get_hough_circles(weighted_img, None, isCarla, False)
+        return get_hough_circles(weighted_img, None, isCarla=False, debug=False)
 
 #
 # Carla does not use a red light color recognition routine as the red and yellow
@@ -257,7 +257,7 @@ def recognize_green_light(hsv_image, isCarla):
     upper_green = np.array([5, 5, 255])
     green2 = recognize_light(hsv_image, lower_green, upper_green)
     green1 = cv2.addWeighted(green1, 1.0, green2, 1.0, 0.0)
-    result, bestfraction, posColor = get_hough_circles(green1, hsv_image, isCarla, True)
+    result, bestfraction, posColor = get_hough_circles(green1, hsv_image, isCarla=True, debug=True)
     return (result, bestfraction, posColor)
 
 
@@ -279,7 +279,7 @@ def recognize_yellow_light(hsv_image, isCarla):
     lower_yellow = np.array([15,  90, 100])
     upper_yellow = np.array([35, 255, 255])
     yellow1 = recognize_light(hsv_image, lower_yellow, upper_yellow)
-    result, bestfraction, posColor =  get_hough_circles(yellow1, hsv_image, isCarla=False, debug=False)
+    result, bestfraction, posColor =  get_hough_circles(yellow1, hsv_image, isCarla=True, debug=False)
     return (result, bestfraction, posColor)
 
 
