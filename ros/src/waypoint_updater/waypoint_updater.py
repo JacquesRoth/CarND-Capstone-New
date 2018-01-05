@@ -134,10 +134,10 @@ class WaypointUpdater(object):
                 bestind += 1
                 if bestind >= len(self.wps): bestind = 0
         self.wp_index = bestind
-        if (self.count < 3):
-            print("Best waypoint", bestind, self.wps[bestind].pose.pose.position.x, \
-                                            self.wps[bestind].pose.pose.position.y, \
-                                            self.wps[bestind].pose.pose.position.z)
+        # if (self.count < 3):
+        #     print("Best waypoint", bestind, self.wps[bestind].pose.pose.position.x, \
+        #                                     self.wps[bestind].pose.pose.position.y, \
+        #                                     self.wps[bestind].pose.pose.position.z)
         # Update the velocities of the waypoints from the bestind to bestind + LOOKAHEAD_WPS - 1
         # for now, use 10.0 m/s (about 22 MPH)
         i = bestind
@@ -148,8 +148,8 @@ class WaypointUpdater(object):
         # Calculate acceleration (in the reverse direction) to stop the car
         # before the next red (or yellow?) traffic light
  
-        if (self.count & 0x3f) == 0: print "lightindx", self.lightindx, self.wp_index, \
-                                                        self.lasta
+        # if (self.count & 0x3f) == 0: print "lightindx", self.lightindx, self.wp_index, \
+        #                                                 self.lasta
         if self.lightindx > 0:
             stoptarget = self.lightindx - 5
             if stoptarget < 0: stoptarget += len(self.wps)
