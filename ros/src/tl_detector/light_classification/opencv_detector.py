@@ -206,7 +206,6 @@ def get_hough_circles(weighted_image, hsv_image, isCarla, debug):
                     bestcircle[2]]]]
     else: return (None, bestfraction, posColor)
     result = np.array(result)
-    if debug: print bestcircle[2], bestfraction
     return (result, bestfraction, posColor)
 
 

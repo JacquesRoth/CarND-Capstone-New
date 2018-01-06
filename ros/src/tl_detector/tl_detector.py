@@ -167,7 +167,7 @@ class TLDetector(object):
                 xw = self.waypoints[i].pose.pose.position.x
                 yw = self.waypoints[i].pose.pose.position.y
                 zw = self.waypoints[i].pose.pose.position.z
-                dist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw**2))
+                dist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw)**2)
                 if dist < mindist:
                     bestind = i
                     mindist = dist
@@ -179,14 +179,14 @@ class TLDetector(object):
             xw = self.waypoints[i].pose.pose.position.x
             yw = self.waypoints[i].pose.pose.position.y
             zw = self.waypoints[i].pose.pose.position.z
-            mindist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw**2)) 
+            mindist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw)**2)
             while True:
                 i += 1
                 if i >= len(self.waypoints): i = 0
                 xw = self.waypoints[i].pose.pose.position.x
                 yw = self.waypoints[i].pose.pose.position.y
                 zw = self.waypoints[i].pose.pose.position.z
-                dist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw**2))
+                dist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw)**2)
                 if dist > mindist: break
                 mindist = dist
                 bestind = i

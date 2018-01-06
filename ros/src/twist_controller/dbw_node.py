@@ -94,8 +94,7 @@ class DBWNode(object):
         #rospy.loginfo('Current Velocity Received...')
         self.current_linear_velocity = msg.twist.linear.x
         self.current_angular_velocity = msg.twist.angular.z
-        if (self.count & 0x3F) == 0:
-            print "Angulars", msg.twist.angular.x, msg.twist.angular.y, msg.twist.angular.z
+
     def current_pose_cb(self, msg):
         #rospy.loginfo('Current Pose Received...')
         self.current_pose = msg

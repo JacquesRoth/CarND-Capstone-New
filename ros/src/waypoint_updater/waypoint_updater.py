@@ -88,14 +88,14 @@ class WaypointUpdater(object):
             xw = self.wps[i].pose.pose.position.x
             yw = self.wps[i].pose.pose.position.y
             zw = self.wps[i].pose.pose.position.z
-            mindist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw**2)) 
+            mindist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw)**2)
             while True:
                 i += 1
                 if i >= len(self.wps): i = 0
                 xw = self.wps[i].pose.pose.position.x
                 yw = self.wps[i].pose.pose.position.y
                 zw = self.wps[i].pose.pose.position.z
-                dist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw**2))
+                dist = math.sqrt((x-xw)**2+(y-yw)**2+(z-zw)**2)
                 if dist > mindist: break
                 mindist = dist
                 bestind = i
